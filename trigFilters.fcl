@@ -69,7 +69,6 @@ TrigFilters : {
          fitdirection: 0
          fitparticle: 11
          minNHitsTimeCluster: 10
-         module_label: "TTCalHelixFinderDe"
          module_type: "CalHelixFinder"
          printFrequency: 100
          useAsFilter: 0
@@ -137,7 +136,6 @@ TrigFilters : {
          fitdirection: 0
          fitparticle: 11
          minNHitsTimeCluster: 10
-         module_label: "TTCalHelixFinderUe"
          module_type: "CalHelixFinder"
          printFrequency: 100
          useAsFilter: 0
@@ -163,7 +161,6 @@ TrigFilters : {
          dtOffset: 0
          minClusterEnergy: 50
          minClusterSize: 2
-         module_label: "TTCalTimePeakFinder"
          module_type: "CalTimePeakFinder"
          pitchAngle: 6.7e-1
          printFrequency: 100
@@ -190,14 +187,12 @@ TrigFilters : {
          dtOffset: -3.1
          minClusterEnergy: 50
          minClusterSize: 2
-         module_label: "TTCalTimePeakFinderUe"
          module_type: "CalTimePeakFinder"
          pitchAngle: -6.7e-1
          printFrequency: 100
          useAsFilter: 0
       }
       caloFastCosmicEventPrescale: {
-         module_label: "caloFastCosmicEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          useFilteredEvents: true
@@ -216,11 +211,9 @@ TrigFilters : {
          diagmaxval: 2.5
          diagminval: 1.5
          dyminval: 140
-         module_label: "caloFastCosmicFilter"
          module_type: "CaloCosmicCalib"
       }
       caloFastMVANNCEEventPrescale: {
-         module_label: "caloFastMVANNCEEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -232,11 +225,9 @@ TrigFilters : {
          diagLevel: 0
          minEtoTest: 40
          minMVAScore: 9.5e-1
-         module_label: "caloFastMVANNCEFilter"
          module_type: "FilterEcalNNTrigger"
       }
       caloFastPhotonEventPrescale: {
-         module_label: "caloFastPhotonEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -253,11 +244,9 @@ TrigFilters : {
             1.036e1
          ]
          SignalTemplates: "OfflineData/CaloFilters/v7_1_5/caloLH_ce.root"
-         module_label: "caloFastPhotonFilter"
          module_type: "CaloLikelihood"
       }
       caloFastRMCEventPrescale: {
-         module_label: "caloFastRMCEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          useFilteredEvents: true
@@ -274,11 +263,9 @@ TrigFilters : {
          MinNCel: 2
          MinNCl: 1
          diagLevel: 0
-         module_label: "caloFastRMCFilter"
          module_type: "CaloClusterCounterFilter"
       }
       cprDeMHighPStopTargEventPrescale: {
-         module_label: "cprDeMHighPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -299,14 +286,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprDeMHighPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprDeMHighPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "cprDeMHighPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: true
          timeClusterCollection: "TTCalTimePeakFinder"
@@ -326,12 +311,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "cprDeMHighPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       cprDeMLowPStopTargEventPrescale: {
-         module_label: "cprDeMLowPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -355,14 +338,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprDeMLowPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprDeMLowPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "cprDeMLowPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinder"
@@ -382,12 +363,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "cprDeMLowPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       cprDePHighPStopTargEventPrescale: {
-         module_label: "cprDePHighPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -411,14 +390,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprDePHighPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprDePHighPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "cprDePHighPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinder"
@@ -438,12 +415,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "cprDePHighPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       cprDePLowPStopTargEventPrescale: {
-         module_label: "cprDePLowPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -467,14 +442,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprDePLowPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprDePLowPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "cprDePLowPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinder"
@@ -494,12 +467,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "cprDePLowPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       cprHelixDeMEventPrescale: {
-         module_label: "cprHelixDeMEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -523,20 +494,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprHelixDeMHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprHelixDeMTCFilter: {
          minNStrawHits: 15
-         module_label: "cprHelixDeMTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinder"
       }
       cprHelixDePEventPrescale: {
-         module_label: "cprHelixDePEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -560,20 +528,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprHelixDePHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprHelixDePTCFilter: {
          minNStrawHits: 15
-         module_label: "cprHelixDePTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinder"
       }
       cprHelixUeMEventPrescale: {
-         module_label: "cprHelixUeMEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -597,20 +562,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprHelixUeMHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprHelixUeMTCFilter: {
          minNStrawHits: 15
-         module_label: "cprHelixUeMTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinderUe"
       }
       cprHelixUePEventPrescale: {
-         module_label: "cprHelixUePEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -634,20 +596,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "cprHelixUePHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       cprHelixUePTCFilter: {
          minNStrawHits: 15
-         module_label: "cprHelixUePTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTCalTimePeakFinderUe"
       }
       cstEventPrescale: {
-         module_label: "cstEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -658,7 +617,6 @@ TrigFilters : {
          maxNStrawDigi: 10000
          minNCaloDigi: -1
          minNStrawDigi: 8
-         module_label: "cstSDCountFilter"
          module_type: "DigiFilter"
          strawDigiCollection: "makeSD"
          useCaloDigi: false
@@ -666,7 +624,6 @@ TrigFilters : {
       }
       cstTCFilter: {
          minNStrawHits: 8
-         module_label: "cstTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "CstSimpleTimeCluster"
@@ -679,11 +636,9 @@ TrigFilters : {
          ]
          debugLevel: 0
          minnsh: 8
-         module_label: "cstTSFilter"
          module_type: "CosmicSeedFilter"
       }
       cstTimeClusterEventPrescale: {
-         module_label: "cstTimeClusterEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -694,7 +649,6 @@ TrigFilters : {
          maxNStrawDigi: 10000
          minNCaloDigi: -1
          minNStrawDigi: 8
-         module_label: "cstTimeClusterSDCountFilter"
          module_type: "DigiFilter"
          strawDigiCollection: "makeSD"
          useCaloDigi: false
@@ -702,13 +656,11 @@ TrigFilters : {
       }
       cstTimeClusterTCFilter: {
          minNStrawHits: 4
-         module_label: "cstTimeClusterTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "CstSimpleTimeCluster"
       }
       minBiasCDCountEventPrescale: {
-         module_label: "minBiasCDCountEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 10000
          triggerFlag: [
@@ -723,7 +675,6 @@ TrigFilters : {
          maxNStrawDigi: -1
          minNCaloDigi: 200
          minNStrawDigi: -1
-         module_label: "minBiasCDCountFilter"
          module_type: "DigiFilter"
          strawDigiCollection: "notUsed"
          triggerPath: "minBiasCaloDigiCount"
@@ -731,7 +682,6 @@ TrigFilters : {
          useStrawDigi: false
       }
       minBiasSDCountEventPrescale: {
-         module_label: "minBiasSDCountEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 10000
          triggerFlag: [
@@ -746,7 +696,6 @@ TrigFilters : {
          maxNStrawDigi: 10000
          minNCaloDigi: -1
          minNStrawDigi: 10
-         module_label: "minBiasSDCountFilter"
          module_type: "DigiFilter"
          strawDigiCollection: "makeSD"
          triggerPath: "minBiasStrawDigiCount"
@@ -754,7 +703,6 @@ TrigFilters : {
          useStrawDigi: true
       }
       tprDeMHighPStopTargEventPrescale: {
-         module_label: "tprDeMHighPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -775,14 +723,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprDeMHighPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprDeMHighPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "tprDeMHighPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
@@ -802,12 +748,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "tprDeMHighPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       tprDeMLowPStopTargEventPrescale: {
-         module_label: "tprDeMLowPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
       }
@@ -828,14 +772,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprDeMLowPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprDeMLowPStopTargTCFilter: {
          minNStrawHits: 10
-         module_label: "tprDeMLowPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
@@ -855,12 +797,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "tprDeMLowPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       tprDePHighPStopTargEventPrescale: {
-         module_label: "tprDePHighPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -884,14 +824,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprDePHighPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprDePHighPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "tprDePHighPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
@@ -911,12 +849,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "tprDePHighPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       tprDePLowPStopTargEventPrescale: {
-         module_label: "tprDePLowPStopTargEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -940,14 +876,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprDePLowPStopTargHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprDePLowPStopTargTCFilter: {
          minNStrawHits: 15
-         module_label: "tprDePLowPStopTargTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
@@ -967,12 +901,10 @@ TrigFilters : {
          minNStrawHits: 15
          minT0: 0
          minTanDip: 0
-         module_label: "tprDePLowPStopTargTSFilter"
          module_type: "SeedFilter"
          requireCaloCluster: false
       }
       tprHelixDeMEventPrescale: {
-         module_label: "tprHelixDeMEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -996,13 +928,11 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixDeMHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprHelixDeMIpaEventPrescale: {
-         module_label: "tprHelixDeMIpaEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1000
       }
@@ -1023,13 +953,11 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixDeMIpaHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprHelixDeMIpaPhiScaledEventPrescale: {
-         module_label: "tprHelixDeMIpaPhiScaledEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1000
       }
@@ -1050,7 +978,6 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixDeMIpaPhiScaledHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: true
          prescalerPar: {
@@ -1062,27 +989,23 @@ TrigFilters : {
       }
       tprHelixDeMIpaPhiScaledTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixDeMIpaPhiScaledTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
       }
       tprHelixDeMIpaTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixDeMIpaTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
       }
       tprHelixDeMTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixDeMTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
       }
       tprHelixDePEventPrescale: {
-         module_label: "tprHelixDePEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -1106,20 +1029,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixDePHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprHelixDePTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixDePTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinder"
       }
       tprHelixUeMEventPrescale: {
-         module_label: "tprHelixUeMEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -1143,20 +1063,17 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixUeMHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprHelixUeMTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixUeMTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinderUe"
       }
       tprHelixUePEventPrescale: {
-         module_label: "tprHelixUePEventPrescale"
          module_type: "PrescaleEvent"
          nPrescale: 1
          triggerFlag: [
@@ -1180,14 +1097,12 @@ TrigFilters : {
          minNLoops: 0
          minNStrawHits: 15
          minPt: 0
-         module_label: "tprHelixUePHSFilter"
          module_type: "HelixFilter"
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
       tprHelixUePTCFilter: {
          minNStrawHits: 15
-         module_label: "tprHelixUePTCFilter"
          module_type: "TimeClusterFilter"
          requireCaloCluster: false
          timeClusterCollection: "TTtimeClusterFinderUe"

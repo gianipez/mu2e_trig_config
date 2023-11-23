@@ -8,7 +8,6 @@ TrigProducers : {
    producers : 
 
    {
-
       #
       artFragFromDTCEvents: {
          diagLevel: 0
@@ -49,7 +48,6 @@ TrigProducers : {
          diagLevel: 0
          extendSearch: true
          minSiPMPerHit: 2
-         module_label: "CaloClusterFast"
          module_type: "CaloClusterFast"
          timeOffset: -61
       }
@@ -65,12 +63,13 @@ TrigProducers : {
          deltaTPulses: 11
          diagLevel: 0
          digiSampling: 5
-         module_label: "CaloHitMakerFast"
          module_type: "CaloHitMakerFast"
          nPEperMeV: 30
          nSigmaNoise: 4
          noiseLevelMeV: 5.5e-1
       }
+
+      #
       CstCosmicTrackFinder: {
          ComboHitCollection: "TTmakePH"
          CosmicTrackFit: {
@@ -104,7 +103,6 @@ TrigProducers : {
          minNComboHits: 0
          minNHitsTimeCluster: 0
          minNStrawHits: 4
-         module_label: "CstCosmicTrackFinder"
          module_type: "CosmicTrackFinder"
       }
       CstLineFinder: {
@@ -115,23 +113,22 @@ TrigProducers : {
          TimeClusterCollection: "CstSimpleTimeCluster"
          maxDOCA: 10
          minPeak: 10
-         module_label: "CstLineFinder"
          module_type: "LineFinder"
          t0offset: 0
       }
       CstSimpleTimeCluster: {
          ComboHitCollection: "TTmakePH"
          TestFlag: false
-         module_label: "CstSimpleTimeCluster"
          module_type: "SimpleTimeCluster"
       }
+
+      #
       TTCalHelixMergerDeM: {
          HelixFinders: [
             "TTCalHelixFinderDe:Positive"
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTCalHelixMergerDeM"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -142,7 +139,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTCalHelixMergerDeP"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -153,7 +149,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTCalHelixMergerUeM"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -164,7 +159,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTCalHelixMergerUeP"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -353,7 +347,6 @@ TrigProducers : {
             ]
          }
          UsePDGCharge: true
-         module_label: "TTCalSeedFitDem"
          module_type: "LoopHelixFit"
       }
       TTCalSeedFitDep: {
@@ -540,7 +533,6 @@ TrigProducers : {
             ]
          }
          UsePDGCharge: true
-         module_label: "TTCalSeedFitDep"
          module_type: "LoopHelixFit"
       }
       TTHelixMergerDeM: {
@@ -549,7 +541,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTHelixMergerDeM"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -560,7 +551,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTHelixMergerDeP"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -571,7 +561,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTHelixMergerUeM"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -582,7 +571,6 @@ TrigProducers : {
          ]
          debugLevel: 0
          deltanh: 5
-         module_label: "TTHelixMergerUeP"
          module_type: "MergeHelices"
          scaleXY: 1.1
          scaleZPhi: 7.5e-1
@@ -771,7 +759,6 @@ TrigProducers : {
             ]
          }
          UsePDGCharge: false
-         module_label: "TTKSFDeM"
          module_type: "LoopHelixFit"
       }
       TTKSFDeP: {
@@ -958,7 +945,6 @@ TrigProducers : {
             ]
          }
          UsePDGCharge: false
-         module_label: "TTKSFDeP"
          module_type: "LoopHelixFit"
       }
       TTflagBkgHits: {
@@ -996,7 +982,6 @@ TrigProducers : {
             TestFlag: true
             TimeRMS: 2
          }
-         module_label: "TTflagBkgHits"
          module_type: "FlagBkgHits"
       }
       TThelixFinder: {
@@ -1017,7 +1002,6 @@ TrigProducers : {
          minFinalSeedHits: 15
          minNHelixHits: 15
          minSeedCircleHits: 7
-         module_label: "TThelixFinder"
          module_type: "HelixFinder"
          nPhiBins: 36
          nPhiPeakBins: 3
@@ -1144,7 +1128,6 @@ TrigProducers : {
          UpdateStereoHits: false
          UseHitMVA: false
          UseTripletArea: false
-         module_label: "TThelixFinderUe"
          module_type: "RobustHelixFinder"
          targetconsistent: false
          targetconsistent_init: false
@@ -1173,7 +1156,6 @@ TrigProducers : {
          UError: 10
          Unsorted: false
          UseTOT: true
-         module_label: "TTmakePH"
          module_type: "CombineStrawHits"
       }
       TTmakeSHFromDigi: {
@@ -1197,7 +1179,6 @@ TrigProducers : {
          crossTalkEnergy: 7e-3
          crossTalkMaximumTime: 100
          crossTalkMinimumTime: -1
-         module_label: "TTmakeSH"
          module_type: "StrawHitReco"
       }
       TTtimeClusterFinder: {
@@ -1240,7 +1221,6 @@ TrigProducers : {
          maxIntersectSig: 5
          minCaloEnergy: 50
          minCaloSize: 2
-         module_label: "TTtimeClusterFinder"
          module_type: "TZClusterFinder"
          phiCleanPhi: 45
          phiCleanThresh: 5
@@ -1295,79 +1275,60 @@ TrigProducers : {
          UseCaloCluster: true
          UseCaloClusterPosition: true
          Ymin: 5
-         module_label: "TTtimeClusterFinderUe"
          module_type: "TimeClusterFinder"
       }
       cprDeMHighPStopTargTriggerInfoMerger: {
-         module_label: "cprDeMHighPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cprDeMLowPStopTargTriggerInfoMerger: {
-         module_label: "cprDeMLowPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cprDePHighPStopTargTriggerInfoMerger: {
-         module_label: "cprDePHighPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cprDePLowPStopTargTriggerInfoMerger: {
-         module_label: "cprDePLowPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cprHelixDeMTriggerInfoMerger: {
-         module_label: "cprHelixDeMTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cprHelixDePTriggerInfoMerger: {
-         module_label: "cprHelixDePTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cstTimeClusterTriggerInfoMerger: {
-         module_label: "cstTimeClusterTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       cstTriggerInfoMerger: {
-         module_label: "cstTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprDeMHighPStopTargTriggerInfoMerger: {
-         module_label: "tprDeMHighPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprDeMLowPStopTargTriggerInfoMerger: {
-         module_label: "tprDeMLowPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprDePHighPStopTargTriggerInfoMerger: {
-         module_label: "tprDePHighPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprDePLowPStopTargTriggerInfoMerger: {
-         module_label: "tprDePLowPStopTargTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixDeMIpaPhiScaledTriggerInfoMerger: {
-         module_label: "tprHelixDeMIpaPhiScaledTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixDeMIpaTriggerInfoMerger: {
-         module_label: "tprHelixDeMIpaTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixDeMTriggerInfoMerger: {
-         module_label: "tprHelixDeMTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixDePTriggerInfoMerger: {
-         module_label: "tprHelixDePTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixUeMTriggerInfoMerger: {
-         module_label: "tprHelixUeMTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
       tprHelixUePTriggerInfoMerger: {
-         module_label: "tprHelixUePTriggerInfoMerger"
          module_type: "MergeTriggerInfo"
       }
    }
