@@ -82,7 +82,7 @@ def generateMenu(args,  dictMenu, menuName):
     for k in dictMenu:
         if dictMenu[k]['enabled'] == 0: continue
         list_of_calo_trk_paths.append(k)
-        trigMenu.write('     "{}:{},"\n'.format(dictMenu[k]['bit'], k))
+        trigMenu.write('     "{}:{}",\n'.format(dictMenu[k]['bit'], k))
         #
         vv=k.split("_")
         streamName = vv[0]
