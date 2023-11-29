@@ -1,0 +1,6 @@
+import json
+
+while open("data/dictMenu.json") as f:
+    conf = json.load(f)
+    print(conf)
+    

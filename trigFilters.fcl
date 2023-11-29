@@ -197,10 +197,10 @@ TrigCprFilters:{
       printFrequency: 100
       useAsFilter: 0
    }
-   cprDeMHighPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # cprDeMHighPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    cprDeMHighPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -246,13 +246,13 @@ TrigCprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   cprDeMLowPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprDeMLowPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprDeMLowPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -298,13 +298,13 @@ TrigCprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   cprDePHighPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprDePHighPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprDePHighPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -350,13 +350,13 @@ TrigCprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   cprDePLowPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprDePLowPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprDePLowPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -402,13 +402,13 @@ TrigCprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   cprHelixDeMEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprHelixDeMEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprHelixDeMHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -436,13 +436,13 @@ TrigCprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTCalTimePeakFinder"
    }
-   cprHelixDePEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprHelixDePEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprHelixDePHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -470,13 +470,13 @@ TrigCprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTCalTimePeakFinder"
    }
-   cprHelixUeMEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprHelixUeMEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprHelixUeMHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -504,13 +504,13 @@ TrigCprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTCalTimePeakFinderUe"
    }
-   cprHelixUePEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # cprHelixUePEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    cprHelixUePHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -547,10 +547,10 @@ TrigCprFilters:{
 #
 ################################################################################
 TrigTprFilters:{
-   tprDeMHighPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # tprDeMHighPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    tprDeMHighPStopTargHSFilter: {
       doHelicityCheck: false
       helicity: 1
@@ -596,10 +596,10 @@ TrigTprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   tprDeMLowPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # tprDeMLowPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    tprDeMLowPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -645,13 +645,13 @@ TrigTprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   tprDePHighPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprDePHighPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprDePHighPStopTargHSFilter: {
       doHelicityCheck: false
       helicity: -1
@@ -697,13 +697,13 @@ TrigTprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   tprDePLowPStopTargEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprDePLowPStopTargEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprDePLowPStopTargHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -749,13 +749,13 @@ TrigTprFilters:{
       module_type: "SeedFilter"
       requireCaloCluster: false
    }
-   tprHelixDeMEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprHelixDeMEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprHelixDeMHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -777,10 +777,10 @@ TrigTprFilters:{
       prescaleUsingD0Phi: false
       requireCaloCluster: false
    }
-   tprHelixDeMIpaEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1000
-   }
+   # tprHelixDeMIpaEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1000
+   # }
    tprHelixDeMIpaHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -802,10 +802,10 @@ TrigTprFilters:{
       prescaleUsingD0Phi: false
       requireCaloCluster: false
    }
-   tprHelixDeMIpaPhiScaledEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1000
-   }
+   # tprHelixDeMIpaPhiScaledEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1000
+   # }
    tprHelixDeMIpaPhiScaledHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -850,13 +850,13 @@ TrigTprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTtimeClusterFinder"
    }
-   tprHelixDePEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprHelixDePEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprHelixDePHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -884,13 +884,13 @@ TrigTprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTtimeClusterFinder"
    }
-   tprHelixUeMEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprHelixUeMEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprHelixUeMHSFilter: {
       doHelicityCheck: true
       helicity: -1
@@ -918,13 +918,13 @@ TrigTprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTtimeClusterFinderUe"
    }
-   tprHelixUePEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-   }
+   # tprHelixUePEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   # }
    tprHelixUePHSFilter: {
       doHelicityCheck: true
       helicity: 1
@@ -960,10 +960,10 @@ TrigTprFilters:{
 #
 ################################################################################
 TrigCstFilters:{
-   cstEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # cstEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    cstSDCountFilter: {
       caloDigiCollection: "notUsed"
       maxCaloEnergy: -1
@@ -992,10 +992,10 @@ TrigCstFilters:{
       minnsh: 8
       module_type: "CosmicSeedFilter"
    }
-   cstTimeClusterEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # cstTimeClusterEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    cstTimeClusterSDCountFilter: {
       caloDigiCollection: "notUsed"
       maxCaloEnergy: -1
@@ -1023,14 +1023,14 @@ TrigCstFilters:{
 #
 ################################################################################
 TrigSupFilters:{
-   minBiasCDCountEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 10000
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-      triggerPath: "minBiasCaloDigiCount"
-   }
+   # minBiasCDCountEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 10000
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   #    triggerPath: "minBiasCaloDigiCount"
+   # }
    minBiasCDCountFilter: {
       caloDigiCollection: "CaloDigiMaker"
       maxCaloEnergy: -1
@@ -1044,14 +1044,14 @@ TrigSupFilters:{
       useCaloDigi: true
       useStrawDigi: false
    }
-   minBiasSDCountEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 10000
-      triggerFlag: [
-         "PrescaleRandom"
-      ]
-      triggerPath: "minBiasStrawDigiCount"
-   }
+   # minBiasSDCountEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 10000
+   #    triggerFlag: [
+   #       "PrescaleRandom"
+   #    ]
+   #    triggerPath: "minBiasStrawDigiCount"
+   # }
    minBiasSDCountFilter: {
       caloDigiCollection: "notUSed"
       maxCaloEnergy: -1
@@ -1075,11 +1075,11 @@ TrigSupFilters:{
 #
 ################################################################################
 TrigCalFilters:{
-   caloFastCosmicEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      useFilteredEvents: true
-   }
+   # caloFastCosmicEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    useFilteredEvents: true
+   # }
    caloFastCosmicFilter: {
       CaloClusterModuleLabel: "CaloClusterFast"
       InnerRadius: 460
@@ -1096,10 +1096,10 @@ TrigCalFilters:{
       dyminval: 140
       module_type: "CaloCosmicCalib"
    }
-   caloFastMVANNCEEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # caloFastMVANNCEEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    caloFastMVANNCEFilter: {
       caloBkgMVA: {
          MVAWeights: "Offline/CaloFilters/data/CE_NN_ReLU.weights.xml"
@@ -1110,10 +1110,10 @@ TrigCalFilters:{
       minMVAScore: 9.5e-1
       module_type: "FilterEcalNNTrigger"
    }
-   caloFastPhotonEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-   }
+   # caloFastPhotonEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   # }
    caloFastPhotonFilter: {
       BackgroundTemplates: "OfflineData/CaloFilters/v7_1_5/caloLH_bkg.root"
       CaloClusterModuleLabel: "CaloClusterFast"
@@ -1129,11 +1129,11 @@ TrigCalFilters:{
       SignalTemplates: "OfflineData/CaloFilters/v7_1_5/caloLH_ce.root"
       module_type: "CaloLikelihood"
    }
-   caloFastRMCEventPrescale: {
-      module_type: "PrescaleEvent"
-      nPrescale: 1
-      useFilteredEvents: true
-   }
+   # caloFastRMCEventPrescale: {
+   #    module_type: "PrescaleEvent"
+   #    nPrescale: 1
+   #    useFilteredEvents: true
+   # }
    caloFastRMCFilter: {
       CaloClusterModuleLabel: "CaloClusterFast"
       DiskID: [

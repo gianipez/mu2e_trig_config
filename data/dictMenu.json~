@@ -1,0 +1,32 @@
+{
+        DictionaryMenu : {
+        "tprDeM_highP_stopTarg": 
+{ "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"101:tprDeP_highP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"110:tprDeM_lowP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"111:tprDeP_lowP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"120:tprHelixDeM_ipa" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"121:tprHelixDeM_ipa_phiScaled" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"130:tprHelixDeM" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"131:tprHelixDeP" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"132:tprHelixUeM" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"133:tprHelixUeP" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"150:cprDeM_highP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"151:cprDeP_highP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"160:cprDeM_lowP_stopTarg", : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""}
+"161:cprDeP_lowP_stopTarg" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"170:cprHelixDeM" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"171:cprHelixDeP" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"172:cprHelixUeM" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"173:cprHelixUeP" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"200:caloFast_photon" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"201:caloFast_mvaNNCE" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"202:caloFast_cosmic" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""},
+"220:caloFast_rmc" : { "bit" : 100 , "eventMode" : ["OnSpill"], "comment" : ""} 
+#"300:cst",
+#"310:cstTimeCluster",
+#"400:minBias_sdCount",
+#"410:minBias_cdCount"
+}
+
+}
