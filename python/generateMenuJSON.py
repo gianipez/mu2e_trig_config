@@ -48,6 +48,8 @@ def generateLogger(args, dictLog, logName):
             loggerMenu.write("{},".format(k))
         else:
             loggerMenu.write("{}".format(k))
+    #
+    print("[generateLogger] {} OUTPUT PATHS FOUND (): {}".format(logName, len(list_of_logger_streams), list_of_logger_streams))
     loggerMenu.write("]\n")
     loggerMenu.write("  end_paths: [ outputs ] \n")
 
@@ -90,7 +92,7 @@ def generateMenu(args,  dictMenu, menuName):
         psConfig.write("      eventModeConfig : {}\n".format(dictMenu[k]['eventModeConfig']))
         psConfig.write("}\n\n")
     #
-    print("[generateMenuJSON] TRK+CALO TRIGGER PATHS FOUND (): {}".format(len(list_of_calo_trk_paths), list_of_calo_trk_paths)) 
+    print("[generateMenu] {} TRIGGER PATHS FOUND (): {}".format(menuName, len(list_of_calo_trk_paths), list_of_calo_trk_paths)) 
     #
     psConfig.write("}\n")
     psConfig.close()
@@ -104,18 +106,6 @@ def generateMenu(args,  dictMenu, menuName):
 
 
 def generate(args):
-    # trigMenuFileName = 'trigMenuTest.fcl'
-    # psConfigFileName = 'trigPSConfigTest.fcl'
-    
-    # os.system("chmod 755 {}".format(trigMenuFileName))
-    # os.system("chmod 755 {}".format(psConfigFileName))
-
-    # trigMenu = open(trigMenuFileName, 'w')
-    # psConfig = open(psConfigFileName, 'w')
-    
-    # trigMenu.write("TrigMenu: {\n")
-    # trigMenu.write("  trigger_paths: [\n")
-    # psConfig.write("TrigPSConfig: {\n")
     
     with open('data/dictMenu.json') as f:
         conf = json.load(f)
@@ -124,19 +114,10 @@ def generate(args):
     
         dict_trkcal_triggers = conf['trigger_paths']
         generateMenu(args, dict_trkcal_triggers, 'trigMenu')
-        
-        # list_of_calo_trk_paths = []
-        # for k in dict_trkcal_triggers:
-        #     if dict_trkcal_triggers[k]['enabled'] == 0: continue
-        #     list_of_calo_trk_paths.append(k)
-        #     trigMenu.write('     "{}:{},"\n'.format(dict_trkcal_triggers[k]['bit'], k))
-        #     #
-        #     psConfig.write("   {}Prescale:".format(k.replace("_",""))+" { \n")
-        #     psConfig.write("      module_type: PrescaleEvent \n")
-        #     psConfig.write("      eventModeConfig : {}\n".format(dict_trkcal_triggers[k]['eventModeConfig']))
-        #     psConfig.write("}\n\n")
-            
 
+        dict_agg_triggers = conf['agg_trigger_paths']
+        generateMenu(args, dict_agg_triggers, 'aggMenu')
+        
         #now produce the logger menus
         dict_logger = conf['dataLogger_streams']
         generateLogger(args, dict_logger, 'trigLogger')
