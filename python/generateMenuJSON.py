@@ -159,5 +159,7 @@ if __name__ == "__main__":
                         help="Outout directory")
 
     args = parser.parse_args()
+    
+    os.system("mkdir -p {}".format(args.outdir))
 
     generate(args)
