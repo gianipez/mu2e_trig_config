@@ -13,8 +13,8 @@ def capitalize(word):
     return nn + word[nLetters:]
 
 def generateLogger(args, dictLog, logName):
-    loggerFileName       = logName+'Menu.fcl'
-    loggerConfigFileName = logName+'Config.fcl'
+    loggerFileName       = args.outdir+"/"+logName+'Menu.fcl'
+    loggerConfigFileName = args.outdir+"/"+logName+'Config.fcl'
    
     os.system("chmod 755 {}".format(loggerConfigFileName))
     os.system("chmod 755 {}".format(loggerFileName))
@@ -71,8 +71,8 @@ def generateLogger(args, dictLog, logName):
 ##
 ################################################################################
 def generateMenu(args,  dictMenu, menuName):
-    trigMenuFileName = menuName+'.fcl'
-    psConfigFileName = menuName+'PSConfig.fcl'
+    trigMenuFileName = args.outdir+"/"+menuName+'.fcl'
+    psConfigFileName = args.outdir+"/"+menuName+'PSConfig.fcl'
     
     os.system("chmod 755 {}".format(trigMenuFileName))
     os.system("chmod 755 {}".format(psConfigFileName))
@@ -154,6 +154,9 @@ if __name__ == "__main__":
     parser.add_argument("-q", "--quiet",
                         action="store_false", dest="verbose", default=True,
                         help="don't print status messages to stdout")
+    parser.add_argument("-o", "--outdir",
+                        dest="outdir", default="gen",
+                        help="Outout directory")
 
     args = parser.parse_args()
 
