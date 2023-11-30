@@ -25,218 +25,218 @@ TrigTrkPaths:{
    #    TTtimeClusterFinder, tprTimeClusterDePTCFilter ]
 
    tprDeM_highP_stopTarg           : [ @sequence::TrigRecoSequences.artFragmentsGen, 
-      tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+      tprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTSFilter, tprDeMHighPStopTargTriggerInfoMerger ]
-   trpDeM               : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   trpDeM               : [ tprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTSFilter, tprDeMHighPStopTargTriggerInfoMerger ]
 
-   tprDeP_highP_stopTarg           : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_highP_stopTarg           : [ tprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePHighPStopTargHSFilter, TTKSFDeP, tprDePHighPStopTargTSFilter, tprDePHighPStopTargTriggerInfoMerger  ]
 
-   tprDeM_lowP_stopTarg       : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_lowP_stopTarg       : [ tprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMLowPStopTargHSFilter, TTKSFDeM, tprDeMLowPStopTargTSFilter, tprDeMLowPStopTargTriggerInfoMerger ]
-   tprDeP_lowP_stopTarg       : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_lowP_stopTarg       : [ tprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePLowPStopTargHSFilter, TTKSFDeP, tprDePLowPStopTargTSFilter, tprDePLowPStopTargTriggerInfoMerger ]
 
-   # tprDeM     : [ tprDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
+   # tprDeM     : [ tprDeMPS, @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHits,
    #    TTtimeClusterFinder, tprDeMTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHSFilter, TTKSFDeM, tprDeMTSFilter, tprDeMTriggerInfoMerger ]
-   # tprDeP     : [ tprDePEventPrescale, @sequence::TrigRecoSequences.calReco,
+   # tprDeP     : [ tprDePPS, @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHits,
    #    TTtimeClusterFinder, tprDePTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePHSFilter, TTKSFDeP, tprDePTSFilter, tprDePTriggerInfoMerger ]
 
-   tprHelixDeM     : [ tprHelixDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixDeM     : [ tprHelixDeMPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprHelixDeMTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMHSFilter, tprHelixDeMTriggerInfoMerger ]
-   tprHelixDeP     : [ tprHelixDePEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixDeP     : [ tprHelixDePPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprHelixDePTCFilter, TThelixFinder,TTHelixMergerDeP,  tprHelixDePHSFilter, tprHelixDePTriggerInfoMerger ]
 
-   tprHelixUeM     : [ tprHelixUeMEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixUeM     : [ tprHelixUeMPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinderUe, tprHelixUeMTCFilter, TThelixFinderUe, TTHelixMergerUeM, tprHelixUeMHSFilter, tprHelixUeMTriggerInfoMerger ]
-   tprHelixUeP     : [ tprHelixUePEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixUeP     : [ tprHelixUePPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinderUe, tprHelixUePTCFilter, TThelixFinderUe,TTHelixMergerUeP,  tprHelixUePHSFilter, tprHelixUePTriggerInfoMerger ]
 
 
    # sequences that use a collection of combohits filtered using the calorimeter cluster info
-   # tprSeedUCCDeM        : [ tprSeedUCCDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
+   # tprSeedUCCDeM        : [ tprSeedUCCDeMPS, @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHitsUCC,
    #    TTtimeClusterFinderUCC, tprSeedUCCDeMTCFilter, TThelixFinderUCC, TTHelixUCCMergerDeM, tprSeedUCCDeMHSFilter, TTKSFUCCDeM, tprSeedUCCDeMTSFilter, tprSeedUCCDeMTriggerInfoMerger ]
-   # tprSeedUCCDeP        : [ tprSeedUCCDePEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   # tprSeedUCCDeP        : [ tprSeedUCCDePPS,  @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHitsUCC,
    #    TTtimeClusterFinderUCC, tprSeedUCCDePTCFilter, TThelixFinderUCC, TTHelixUCCMergerDeP, tprSeedUCCDePHSFilter, TTKSFUCCDeP, tprSeedUCCDePTSFilter, tprSeedUCCDeMTriggerInfoMerger ]
 
    #   calibration with DIO-Michel form Inner Proton Absorber
-   tprHelixDeM_ipa_phiScaled  : [ tprHelixDeMIpaPhiScaledEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixDeM_ipa_phiScaled  : [ tprHelixDeMIpaPhiScaledPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprHelixDeMIpaPhiScaledTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMIpaPhiScaledHSFilter, tprHelixDeMIpaPhiScaledTriggerInfoMerger  ]
 
    #    beam monitoring using the e- from the DIO in the IPA
-   tprHelixDeM_ipa       : [ tprHelixDeMIpaEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprHelixDeM_ipa       : [ tprHelixDeMIpaPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprHelixDeMIpaTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMIpaHSFilter, tprHelixDeMIpaTriggerInfoMerger  ]
 
    #calo-seeded tracking
-   cprDeM_highP_stopTarg           : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_highP_stopTarg           : [ cprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHighPStopTargHSFilter,
       TTCalSeedFitDem, cprDeMHighPStopTargTSFilter, cprDeMHighPStopTargTriggerInfoMerger ]
-   cprDeP_highP_stopTarg           : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_highP_stopTarg           : [ cprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHighPStopTargHSFilter,
       TTCalSeedFitDep, cprDePHighPStopTargTSFilter, cprDePHighPStopTargTriggerInfoMerger ]
 
-   cprDeM_lowP_stopTarg       : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_lowP_stopTarg       : [ cprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMLowPStopTargHSFilter,
       TTCalSeedFitDem, cprDeMLowPStopTargTSFilter, cprDeMLowPStopTargTriggerInfoMerger ]
-   cprDeP_lowP_stopTarg       : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_lowP_stopTarg       : [ cprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePLowPStopTargHSFilter,
       TTCalSeedFitDep, cprDePLowPStopTargTSFilter, cprDePLowPStopTargTriggerInfoMerger ]
 
-   # cprDeM     : [ cprDeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   # cprDeM     : [ cprDeMPS,  @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHits,
    #    TTCalTimePeakFinder, cprDeMTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHSFilter,
    #    TTCalSeedFitDem, cprDeMTSFilter, cprDeMTriggerInfoMerger ]
-   # cprDeP     : [ cprDePEventPrescale, @sequence::TrigRecoSequences.calReco,
+   # cprDeP     : [ cprDePPS, @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHits,
    #    TTCalTimePeakFinder, cprDePTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHSFilter,
    #    TTCalSeedFitDep, cprDePTSFilter, cprDePTriggerInfoMerger ]
-   cprHelixDeM     : [ cprHelixDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprHelixDeM     : [ cprHelixDeMPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprHelixDeMTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprHelixDeMHSFilter, cprHelixDeMTriggerInfoMerger ]
-   cprHelixDeP     : [ cprHelixDePEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   cprHelixDeP     : [ cprHelixDePPS,  @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprHelixDePTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprHelixDePHSFilter, cprHelixDePTriggerInfoMerger ]
-   cprHelixUeM     : [ cprHelixUeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   cprHelixUeM     : [ cprHelixUeMPS,  @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinderUe, cprHelixUeMTCFilter, TTCalHelixFinderUe, TTCalHelixMergerUeM, cprHelixUeMHSFilter ]
-   cprHelixUeP     : [ cprHelixUePEventPrescale,   @sequence::TrigRecoSequences.calReco,
+   cprHelixUeP     : [ cprHelixUePPS,   @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinderUe, cprHelixUePTCFilter, TTCalHelixFinderUe, TTCalHelixMergerUeP, cprHelixUePHSFilter ]
 
-   # cprSeedUCCDeM        : [ cprSeedUCCDeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   # cprSeedUCCDeM        : [ cprSeedUCCDeMPS,  @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHitsUCC,
    #    TTCalTimePeakFinderUCC, cprSeedUCCDeMTCFilter, TTCalHelixFinderUCCDe, TTCalHelixUCCMergerDeM, cprSeedUCCDeMHSFilter,
    #    TTCalSeedFitUCCDem, cprSeedUCCDeMTSFilter, cprSeedUCCDeMTriggerInfoMerger ]
-   # cprSeedUCCDeP        : [ cprSeedUCCDePEventPrescale, @sequence::TrigRecoSequences.calReco,
+   # cprSeedUCCDeP        : [ cprSeedUCCDePPS, @sequence::TrigRecoSequences.calReco,
    #    @sequence::TrigRecoSequences.trkPrepareHitsUCC,
    #    TTCalTimePeakFinderUCC, cprSeedUCCDePTCFilter, TTCalHelixFinderUCCDe, TTCalHelixUCCMergerDeP, cprSeedUCCDePHSFilter,
    #    TTCalSeedFitUCCDep, cprSeedUCCDePTSFilter, cprSeedUCCDePTriggerInfoMerger ]
 
    #fast tracking sequences that uses the calorimeter-time selection to reduce the number of TimeClusters and also the number of hits processed by the Delta-ray
    #removal algorithm
-   # fastTprSeedDeM  : [ tprDeMHighPStopTargEventPrescale, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco, @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
+   # fastTprSeedDeM  : [ tprDeMHighPStopTargPS, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco, @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
       #         TTfastTimeClusterFinder, tprFTCFilter, TTDeltaFinder, TTfastHelixFinder, FtprDeMHelixFilter, TTFKSFDeM, FtprDeMHighPStopTargFilter, tprDeMHighPStopTargPrescale ]
-   # fastTprSeedDeP  : [ tprDePHighPStopTargEventPrescale, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco,  @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
+   # fastTprSeedDeP  : [ tprDePHighPStopTargPS, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco,  @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
       #         TTfastTimeClusterFinder, tprFTCFilter, TTDeltaFinder, TTfastHelixFinder, FtprDePHelixFilter, TTFKSFDeP, FtprDePHighPStopTargFilter, tprDePHighPStopTargPrescale ]
 
 
    # sequences for doing timing tests
-   tprDeM_highP_stopTarg_timing0   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_highP_stopTarg_timing0   : [ tprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTriggerInfoMerger ]
-   tprDeM_highP_stopTarg_timing1   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_highP_stopTarg_timing1   : [ tprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM ]
-   tprDeM_highP_stopTarg_timing2   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_highP_stopTarg_timing2   : [ tprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder ]
 
-   tprDeP_highP_stopTarg_timing0   : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_highP_stopTarg_timing0   : [ tprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP, tprDePHighPStopTargHSFilter, TTKSFDeP, tprDePHighPStopTargTriggerInfoMerger ]
-   tprDeP_highP_stopTarg_timing1   : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_highP_stopTarg_timing1   : [ tprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP ]
-   tprDeP_highP_stopTarg_timing2   : [ tprDePHighPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   tprDeP_highP_stopTarg_timing2   : [ tprDePHighPStopTargPS,  @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder ]
 
-   cprDeM_highP_stopTarg_timing0   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_highP_stopTarg_timing0   : [ cprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHighPStopTargHSFilter,
       TTCalSeedFitDem, cprDeMHighPStopTargTriggerInfoMerger ]
-   cprDeM_highP_stopTarg_timing1   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_highP_stopTarg_timing1   : [ cprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM ]
-   cprDeM_highP_stopTarg_timing2   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_highP_stopTarg_timing2   : [ cprDeMHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder ]
 
-   cprDeP_highP_stopTarg_timing0   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_highP_stopTarg_timing0   : [ cprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHighPStopTargHSFilter,
       TTCalSeedFitDep, cprDePHighPStopTargTriggerInfoMerger ]
-   cprDeP_highP_stopTarg_timing1   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_highP_stopTarg_timing1   : [ cprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP ]
-   cprDeP_highP_stopTarg_timing2   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_highP_stopTarg_timing2   : [ cprDePHighPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder ]
 
 
 
-   tprDeM_lowP_stopTarg_timing0      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_lowP_stopTarg_timing0      : [ tprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMLowPStopTargHSFilter,
       TTKSFDeM, tprDeMLowPStopTargTriggerInfoMerger ]
 
-   tprDeM_lowP_stopTarg_timing1      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_lowP_stopTarg_timing1      : [ tprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM ]
 
-   tprDeM_lowP_stopTarg_timing2      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeM_lowP_stopTarg_timing2      : [ tprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder ]
 
 
-   tprDeP_lowP_stopTarg_timing0      : [ tprDePLowPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   tprDeP_lowP_stopTarg_timing0      : [ tprDePLowPStopTargPS,  @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP, tprDePLowPStopTargHSFilter,
       TTKSFDeP, tprDePLowPStopTargTriggerInfoMerger ]
 
-   tprDeP_lowP_stopTarg_timing1      : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_lowP_stopTarg_timing1      : [ tprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP ]
 
-   tprDeP_lowP_stopTarg_timing2      : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   tprDeP_lowP_stopTarg_timing2      : [ tprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTtimeClusterFinder ]
 
 
-   cprDeM_lowP_stopTarg_timing0      : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_lowP_stopTarg_timing0      : [ cprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMLowPStopTargHSFilter,
       TTCalSeedFitDem, cprDeMLowPStopTargTriggerInfoMerger ]
 
-   cprDeM_lowP_stopTarg_timing1      : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeM_lowP_stopTarg_timing1      : [ cprDeMLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM]
 
-   cprDeM_lowP_stopTarg_timing2      : [ cprDeMLowPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
+   cprDeM_lowP_stopTarg_timing2      : [ cprDeMLowPStopTargPS,  @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder]
 
 
-   cprDeP_lowP_stopTarg_timing0      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_lowP_stopTarg_timing0      : [ cprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePLowPStopTargHSFilter,
       TTCalSeedFitDep, cprDePLowPStopTargTriggerInfoMerger ]
 
-   cprDeP_lowP_stopTarg_timing1      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_lowP_stopTarg_timing1      : [ cprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP ]
 
-   cprDeP_lowP_stopTarg_timing2      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
+   cprDeP_lowP_stopTarg_timing2      : [ cprDePLowPStopTargPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder ]
 
@@ -251,300 +251,83 @@ TrigTrkPaths:{
 
 TrigCaloPaths: {
    caloFast_cosmic: [
-      "caloFastCosmicEventPrescale",
+      "caloFastCosmicPS",
       @sequence::TrigRecoSequences.calReco,
       "caloFastCosmicFilter"
    ]
-   caloFast_mvaNNCE: [
-      "caloFastMVANNCEEventPrescale",
+   caloFast_MVANNCE: [
+      "caloFastMVANNCEPS",
       @sequence::TrigRecoSequences.calReco,
       "caloFastMVANNCEFilter"
    ]
    caloFast_photon: [
-      "caloFastPhotonEventPrescale",
+      "caloFastPhotonPS",
       @sequence::TrigRecoSequences.calReco,
       "caloFastPhotonFilter"
    ]
-   caloFast_rmc: [
-      "caloFastRMCEventPrescale",
+   caloFast_RMC: [
+      "caloFastRMCPS",
       @sequence::TrigRecoSequences.calReco,
       "caloFastRMCFilter"
    ]
    
 }
 
-# TrigSequences : {
+TrigCstPaths: {
+   cst        : [ cstPS, @sequence::TrigRecoSequences.calReco,
+      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      cstSDCountFilter,
+      CstSimpleTimeCluster, cstTCFilter,
+      CstLineFinder,
+      CstCosmicTrackFinder,
+      cstTSFilter,
+      cstTriggerInfoMerger ]
 
-   #    #definiitions of the seuqnces of producer module instances
-   #    # Reco  : {
-      #    #    #tracker hit reco/flagging
-      #    #    trkPrepareHits     : [ TTmakeSH, TTmakePH,TTflagBkgHits ]
-      #    #    trkPrepareHitsUCC  : [ TTmakeSHUCC, TTmakePHUCC, TTflagBkgHitsUCC ]
-      #    #    trkPrepareHitsFast : [ TTmakeSH, TTmakePH ]
-      #    #    trkSPrepareHits    : [ TTmakeSH, TTSmakePH, TTmakeSTH ,TTSflagBkgHits ]
-      #    #    #calorimeter reco
-      #    #    calPrepareHits     : [ CaloHitMakerFast ]
-      #    #    calReco            : [ CaloHitMakerFast, CaloClusterFast ]
-      #    # }
+   cst_timing0 : [ cstPS, @sequence::TrigRecoSequences.calReco,
+      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      cstSDCountFilter,
+      CstSimpleTimeCluster, cstTCFilter,
+      CstCosmicTrackFinder ]
+
+   cst_timing1 : [ cstPS, @sequence::TrigRecoSequences.calReco,
+      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      cstSDCountFilter,
+      CstSimpleTimeCluster ]
+
+   cstTimeCluster : [ cstTimeClusterPS,
+      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      cstTimeClusterSDCountFilter,
+      CstSimpleTimeCluster, cstTimeClusterTCFilter, cstTimeClusterTriggerInfoMerger ]
+
    
-   #    #definitions of the trigger paths making a decision using track-reco info
-   #    TrkPaths : {
-      #       #trkpatrec tracking
-      #       tprTimeClusterDeM    : [ tprTimeClusterDeMEventPrescale,
-         #          @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprTimeClusterDeMTCFilter ]
-      #       tprTimeClusterDeP    : [ tprTimeClusterDePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprTimeClusterDePTCFilter ]
+}
 
-      #       tprDeM_highP_stopTarg           : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTSFilter, tprDeMHighPStopTargTriggerInfoMerger ]
-      #       trpDeM               : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTSFilter, tprDeMHighPStopTargTriggerInfoMerger ]
+TrigSupPaths:{
+   #unbiased filter. It selects the events based on their event id
+   #unbiased           : [ unbiasedPS ]
 
-      #       tprDeP_highP_stopTarg           : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePHighPStopTargHSFilter, TTKSFDeP, tprDePHighPStopTargTSFilter, tprDePHighPStopTargTriggerInfoMerger  ]
+   #minimum bias filters. So far, a filter based on the StrawDigi occupancy
+   minBias_SDCount : [ minBiasSDCountPS, minBiasSDCountFilter]
 
-      #       tprDeM_lowP_stopTarg       : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMLowPStopTargHSFilter, TTKSFDeM, tprDeMLowPStopTargTSFilter, tprDeMLowPStopTargTriggerInfoMerger ]
-      #       tprDeP_lowP_stopTarg       : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePLowPStopTargHSFilter, TTKSFDeP, tprDePLowPStopTargTSFilter, tprDePLowPStopTargTriggerInfoMerger ]
+   #filter to select events with large occupancy in the tracker
+   #largeSDCount       : [ largeSDCountPS, largeSDCountFilter]
 
-      #       tprDeM     : [ tprDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHSFilter, TTKSFDeM, tprDeMTSFilter, tprDeMTriggerInfoMerger ]
-      #       tprDeP     : [ tprDePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePTCFilter, TThelixFinder,TTHelixMergerDeP,  tprDePHSFilter, TTKSFDeP, tprDePTSFilter, tprDePTriggerInfoMerger ]
+   #minimum bias filters. So far, a filter based on the StrawDigi occupancy
+   minBias_CDCount : [ minBiasCDCountPS, minBiasCDCountFilter]
 
-      #       tprHelixDeM     : [ tprHelixDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprHelixDeMTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMHSFilter, tprHelixDeMTriggerInfoMerger ]
-      #       tprHelixDeP     : [ tprHelixDePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprHelixDePTCFilter, TThelixFinder,TTHelixMergerDeP,  tprHelixDePHSFilter, tprHelixDePTriggerInfoMerger ]
+   #filter to select events with large occupancy in the tracker
+   #largeCDCount       : [ largeCDCountPS, largeCDCountFilter]
 
-      #       tprHelixUeM     : [ tprHelixUeMEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinderUe, tprHelixUeMTCFilter, TThelixFinderUe, TTHelixMergerUeM, tprHelixUeMHSFilter, tprHelixUeMTriggerInfoMerger ]
-      #       tprHelixUeP     : [ tprHelixUePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinderUe, tprHelixUePTCFilter, TThelixFinderUe,TTHelixMergerUeP,  tprHelixUePHSFilter, tprHelixUePTriggerInfoMerger ]
+}
 
 
-      #       # sequences that use a collection of combohits filtered using the calorimeter cluster info
-      #       tprSeedUCCDeM        : [ tprSeedUCCDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHitsUCC,
-         #          TTtimeClusterFinderUCC, tprSeedUCCDeMTCFilter, TThelixFinderUCC, TTHelixUCCMergerDeM, tprSeedUCCDeMHSFilter, TTKSFUCCDeM, tprSeedUCCDeMTSFilter, tprSeedUCCDeMTriggerInfoMerger ]
-      #       tprSeedUCCDeP        : [ tprSeedUCCDePEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHitsUCC,
-         #          TTtimeClusterFinderUCC, tprSeedUCCDePTCFilter, TThelixFinderUCC, TTHelixUCCMergerDeP, tprSeedUCCDePHSFilter, TTKSFUCCDeP, tprSeedUCCDePTSFilter, tprSeedUCCDeMTriggerInfoMerger ]
+TrigSequences:{
+   @table::TrigRecoSequences
+   @table::TrigTrkPaths
+   @table::TrigCaloPaths
+   @table::TrigCstPaths
+   @table::TrigSupPaths
 
-      #       #   calibration with DIO-Michel form Inner Proton Absorber
-      #       tprHelixDeM_ipa_phiScaled  : [ tprHelixDeMIpaPhiScaledEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprHelixDeMIpaPhiScaledTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMIpaPhiScaledHSFilter, tprHelixDeMIpaPhiScaledTriggerInfoMerger  ]
-
-      #       #    beam monitoring using the e- from the DIO in the IPA
-      #       tprHelixDeM_ipa       : [ tprHelixDeMIpaEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprHelixDeMIpaTCFilter, TThelixFinder, TTHelixMergerDeM, tprHelixDeMIpaHSFilter, tprHelixDeMIpaTriggerInfoMerger  ]
-
-      #       #calo-seeded tracking
-      #       cprDeM_highP_stopTarg           : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHighPStopTargHSFilter,
-         #          TTCalSeedFitDem, cprDeMHighPStopTargTSFilter, cprDeMHighPStopTargTriggerInfoMerger ]
-      #       cprDeP_highP_stopTarg           : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHighPStopTargHSFilter,
-         #          TTCalSeedFitDep, cprDePHighPStopTargTSFilter, cprDePHighPStopTargTriggerInfoMerger ]
-
-      #       cprDeM_lowP_stopTarg       : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMLowPStopTargHSFilter,
-         #          TTCalSeedFitDem, cprDeMLowPStopTargTSFilter, cprDeMLowPStopTargTriggerInfoMerger ]
-      #       cprDeP_lowP_stopTarg       : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePLowPStopTargHSFilter,
-         #          TTCalSeedFitDep, cprDePLowPStopTargTSFilter, cprDePLowPStopTargTriggerInfoMerger ]
-
-      #       cprDeM     : [ cprDeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHSFilter,
-         #          TTCalSeedFitDem, cprDeMTSFilter, cprDeMTriggerInfoMerger ]
-      #       cprDeP     : [ cprDePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHSFilter,
-         #          TTCalSeedFitDep, cprDePTSFilter, cprDePTriggerInfoMerger ]
-      #       cprHelixDeM     : [ cprHelixDeMEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprHelixDeMTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprHelixDeMHSFilter, cprHelixDeMTriggerInfoMerger ]
-      #       cprHelixDeP     : [ cprHelixDePEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprHelixDePTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprHelixDePHSFilter, cprHelixDePTriggerInfoMerger ]
-      #       cprHelixUeM     : [ cprHelixUeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinderUe, cprHelixUeMTCFilter, TTCalHelixFinderUe, TTCalHelixMergerUeM, cprHelixUeMHSFilter ]
-      #       cprHelixUeP     : [ cprHelixUePEventPrescale,   @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinderUe, cprHelixUePTCFilter, TTCalHelixFinderUe, TTCalHelixMergerUeP, cprHelixUePHSFilter ]
-
-      #       cprSeedUCCDeM        : [ cprSeedUCCDeMEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHitsUCC,
-         #          TTCalTimePeakFinderUCC, cprSeedUCCDeMTCFilter, TTCalHelixFinderUCCDe, TTCalHelixUCCMergerDeM, cprSeedUCCDeMHSFilter,
-         #          TTCalSeedFitUCCDem, cprSeedUCCDeMTSFilter, cprSeedUCCDeMTriggerInfoMerger ]
-      #       cprSeedUCCDeP        : [ cprSeedUCCDePEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHitsUCC,
-         #          TTCalTimePeakFinderUCC, cprSeedUCCDePTCFilter, TTCalHelixFinderUCCDe, TTCalHelixUCCMergerDeP, cprSeedUCCDePHSFilter,
-         #          TTCalSeedFitUCCDep, cprSeedUCCDePTSFilter, cprSeedUCCDePTriggerInfoMerger ]
-
-      #       #fast tracking sequences that uses the calorimeter-time selection to reduce the number of TimeClusters and also the number of hits processed by the Delta-ray
-      #       #removal algorithm
-      #       # fastTprSeedDeM  : [ tprDeMHighPStopTargEventPrescale, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco, @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
-         #          #         TTfastTimeClusterFinder, tprFTCFilter, TTDeltaFinder, TTfastHelixFinder, FtprDeMHelixFilter, TTFKSFDeM, FtprDeMHighPStopTargFilter, tprDeMHighPStopTargPrescale ]
-      #       # fastTprSeedDeP  : [ tprDePHighPStopTargEventPrescale, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco,  @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
-         #          #         TTfastTimeClusterFinder, tprFTCFilter, TTDeltaFinder, TTfastHelixFinder, FtprDePHelixFilter, TTFKSFDeP, FtprDePHighPStopTargFilter, tprDePHighPStopTargPrescale ]
-
-
-      #       # sequences for doing timing tests
-      #       tprDeM_highP_stopTarg_timing0   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter, TTKSFDeM, tprDeMHighPStopTargTriggerInfoMerger ]
-      #       tprDeM_highP_stopTarg_timing1   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM ]
-      #       tprDeM_highP_stopTarg_timing2   : [ tprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder ]
-
-      #       tprDeP_highP_stopTarg_timing0   : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP, tprDePHighPStopTargHSFilter, TTKSFDeP, tprDePHighPStopTargTriggerInfoMerger ]
-      #       tprDeP_highP_stopTarg_timing1   : [ tprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP ]
-      #       tprDeP_highP_stopTarg_timing2   : [ tprDePHighPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder ]
-
-      #       cprDeM_highP_stopTarg_timing0   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMHighPStopTargHSFilter,
-         #          TTCalSeedFitDem, cprDeMHighPStopTargTriggerInfoMerger ]
-      #       cprDeM_highP_stopTarg_timing1   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM ]
-      #       cprDeM_highP_stopTarg_timing2   : [ cprDeMHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder ]
-
-      #       cprDeP_highP_stopTarg_timing0   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePHighPStopTargHSFilter,
-         #          TTCalSeedFitDep, cprDePHighPStopTargTriggerInfoMerger ]
-      #       cprDeP_highP_stopTarg_timing1   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP ]
-      #       cprDeP_highP_stopTarg_timing2   : [ cprDePHighPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder ]
-
-
-
-      #       tprDeM_lowP_stopTarg_timing0      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMLowPStopTargHSFilter,
-         #          TTKSFDeM, tprDeMLowPStopTargTriggerInfoMerger ]
-
-      #       tprDeM_lowP_stopTarg_timing1      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM ]
-
-      #       tprDeM_lowP_stopTarg_timing2      : [ tprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder ]
-
-
-      #       tprDeP_lowP_stopTarg_timing0      : [ tprDePLowPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP, tprDePLowPStopTargHSFilter,
-         #          TTKSFDeP, tprDePLowPStopTargTriggerInfoMerger ]
-
-      #       tprDeP_lowP_stopTarg_timing1      : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDePLowPStopTargTCFilter, TThelixFinder, TTHelixMergerDeP ]
-
-      #       tprDeP_lowP_stopTarg_timing2      : [ tprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder ]
-
-
-      #       cprDeM_lowP_stopTarg_timing0      : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM, cprDeMLowPStopTargHSFilter,
-         #          TTCalSeedFitDem, cprDeMLowPStopTargTriggerInfoMerger ]
-
-      #       cprDeM_lowP_stopTarg_timing1      : [ cprDeMLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDeMLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeM]
-
-      #       cprDeM_lowP_stopTarg_timing2      : [ cprDeMLowPStopTargEventPrescale,  @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder]
-
-
-      #       cprDeP_lowP_stopTarg_timing0      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP, cprDePLowPStopTargHSFilter,
-         #          TTCalSeedFitDep, cprDePLowPStopTargTriggerInfoMerger ]
-
-      #       cprDeP_lowP_stopTarg_timing1      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder, cprDePLowPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDeP ]
-
-      #       cprDeP_lowP_stopTarg_timing2      : [ cprDePLowPStopTargEventPrescale, @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTCalTimePeakFinder ]
-
-
-      #       #kalman filter included
-      #       tprKalDeM  : [ @sequence::TrigRecoSequences.calReco,
-         #          @sequence::TrigRecoSequences.trkPrepareHits,
-         #          TTtimeClusterFinder, tprDeMHighPStopTargTCFilter, TThelixFinder, TTHelixMergerDeM, tprDeMHighPStopTargHSFilter,
-         #          TTKSFDeM, tprDeMHighPStopTargTSFilter, TTKFFDeM, tprDeMHighPStopTargKFFilter ]
-      #       # add sequences for upstream, calibration, ...  FIXME!
-      #    }
-   
-   
-   #    CaloPaths : {
-      #       caloFast_cosmic: [
-         #          "caloFastCosmicEventPrescale",
-         #          @sequence::TrigRecoSequences.calReco,
-         #          "caloFastCosmicFilter"
-         #       ]
-      #       caloFast_mvaNNCE: [
-         #          "caloFastMVANNCEEventPrescale",
-         #          @sequence::TrigRecoSequences.calReco,
-         #          "caloFastMVANNCEFilter"
-         #       ]
-      #       caloFast_photon: [
-         #          "caloFastPhotonEventPrescale",
-         #          @sequence::TrigRecoSequences.calReco,
-         #          "caloFastPhotonFilter"
-         #       ]
-      #       caloFast_rmc: [
-         #          "caloFastRMCEventPrescale",
-         #          @sequence::TrigRecoSequences.calReco,
-         #          "caloFastRMCFilter"
-         #       ]
-      
-      #    }
+}   
 
 END_PROLOG

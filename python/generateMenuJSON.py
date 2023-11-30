@@ -23,7 +23,6 @@ def generateLogger(args, dictLog, logName):
     
     tagName = capitalize(logName)
     
-    loggerMenu.write(tagName+"Menu: {\n")
     loggerConfig.write(tagName+"Config: {\n")
  
     
@@ -36,11 +35,16 @@ def generateLogger(args, dictLog, logName):
         streamName = streamName+"Output"
         list_of_logger_streams.append(streamName)
         #
-        loggerConfig.write("   {}:".format(streamName)+" { \n")
-        loggerConfig.write("      module_type: RootDAQOutput \n")
-        loggerConfig.write("      SelectEvents : {}\n".format(dictLog[k]['paths']))
-        loggerConfig.write("   }\n\n")
-
+        loggerConfig.write('   {}:'.format(streamName)+' { \n')
+        loggerConfig.write('      module_type: RootDAQOutput \n')
+        loggerConfig.write('      SelectEvents : {}\n'.format(dictLog[k]['paths'].replace("'",'"')))
+        loggerConfig.write("      maxSubRuns   : 1\n")
+        loggerConfig.write('      fileName     : "{}.art\"\n'.format(k))
+        loggerConfig.write('   }\n\n')
+    loggerConfig.write("}\n")
+    loggerConfig.close()
+     
+    loggerMenu.write(tagName+"Outputs: {\n")
     loggerMenu.write("  outputs: [")
     for i in range(len(list_of_logger_streams)):
         k = list_of_logger_streams[i]
@@ -51,13 +55,16 @@ def generateLogger(args, dictLog, logName):
     #
     print("[generateLogger] {} OUTPUT PATHS FOUND (): {}".format(logName, len(list_of_logger_streams), list_of_logger_streams))
     loggerMenu.write("]\n")
-    loggerMenu.write("  end_paths: [ outputs ] \n")
+    loggerMenu.write("}\n")
 
-    loggerConfig.write("}\n")
-    loggerConfig.close()
+    loggerMenu.write(tagName+"Menu: {\n")
+    loggerMenu.write("  end_paths: [ outputs ] \n")
     loggerMenu.write("}\n")
     loggerMenu.close()
-  
+
+    os.system("chmod 444 {}".format(loggerConfigFileName))
+    os.system("chmod 444 {}".format(loggerFileName))
+
 ################################################################################
 ##
 ##
@@ -82,14 +89,20 @@ def generateMenu(args,  dictMenu, menuName):
     for k in dictMenu:
         if dictMenu[k]['enabled'] == 0: continue
         list_of_calo_trk_paths.append(k)
-        trigMenu.write('     "{}:{}",\n'.format(dictMenu[k]['bit'], k))
+
+    for i in range(len(list_of_calo_trk_paths)):
+        path = list_of_calo_trk_paths[i]
+        if i!= len(list_of_calo_trk_paths)-1:
+            trigMenu.write('     "{}:{}",\n'.format(dictMenu[path]['bit'], path))
+        else:
+            trigMenu.write('     "{}:{}"\n'.format(dictMenu[path]['bit'], path))
         #
-        vv=k.split("_")
+        vv=path.split("_")
         streamName = vv[0]
         for i in range(1,len(vv)): streamName = streamName + capitalize(vv[i])
         psConfig.write("   {}PS:".format(streamName)+" { \n")
         psConfig.write("      module_type: PrescaleEvent \n")
-        psConfig.write("      eventModeConfig : {}\n".format(dictMenu[k]['eventModeConfig']))
+        psConfig.write("      eventModeConfig : {}\n".format(dictMenu[path]['eventModeConfig']))
         psConfig.write("}\n\n")
     #
     print("[generateMenu] {} TRIGGER PATHS FOUND (): {}".format(menuName, len(list_of_calo_trk_paths), list_of_calo_trk_paths)) 

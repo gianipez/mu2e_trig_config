@@ -1319,7 +1319,7 @@ TrigAprProducers : {
 #
 ################################################################################
 TrigCstProducers : {
-   stCosmicTrackFinder: {
+   CstCosmicTrackFinder: {
       ComboHitCollection: "TTmakePH"
       CosmicTrackFit: {
          DoNotUseFlag: "Outlier"
