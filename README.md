@@ -1,13 +1,12 @@
 # mu2e_trig_config
-prototype for the mu2e_trig_config package
+This package houses the configuration files used to run the art executables in the TDAQ system. The package also includes a python script used to generate the configuration files for the TDAQ art jobs starting from a single JSON file.
 
-## Config
+## core
 The main area houses a series of files used to configure the Online reconstruction and the trigger sequences:
-- `trigProducers.fcl`:
-- `trigSequences.fcl`:
-- `trigProducers.fcl`:
-- `trigFilters.fcl`:
-- `trigServices.fcl`:
+- `trigProducers.fcl`: module instances of the producer modules used in the Online reconstruction
+- `trigSequences.fcl`: sequences used in the trigger paths and Online reconstruction
+- `trigFilters.fcl`  : module instances of the filter modules used in the Online reconstruction
+- `trigServices.fcl` : place holder for teh services used in the Online reco 
 - `trigDigiInputEpilog.fcl`: used only for Offline tests where the inout data are in a Digi format (not Fragments)
 
 ## data
