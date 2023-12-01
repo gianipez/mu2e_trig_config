@@ -6,7 +6,7 @@
         "tprDeM_highP_stopTarg": {
             "bit" : 100 ,
             "enabled": 1, 
-            "eventModeConfig": "[{eventMode:'OnSpill' prescale:1.}, {eventMode:'OffSpill' prescale:1.}]"
+            "eventModeConfig": "[{eventMode:'OnSpill' prescale:1. stream: physics_highP}, {eventMode:'OffSpill' prescale:1. stream: physics_trkCalib}]"
         },
         "tprDeP_highP_stopTarg" : { 
             "bit" : 101 ,

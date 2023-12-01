@@ -74,9 +74,9 @@ Trigger : {
                # take all database tables from local text file
                purpose :  "EMPTY"
                version :  ""
-               #textFile : ["table.txt"]
+               #textFile : ["table.txt"] #this is the local file that otsdaq will download at the begin run!
                verbose : 0
-            }
+           }
          ProditionsService: @local::Proditions
       }
    }
