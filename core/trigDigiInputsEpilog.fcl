@@ -1,2 +1,2 @@
-physics.producers.TTmakeSH        : { @table::TrigProducers.producers.TTmakeSHFromDigi        }
-physics.producers.CaloClusterFast : { @table::TrigProducers.producers.CaloClusterFastFromDigi }
+physics.producers.TTmakeSH         : { @table::TrigProducers.producers.TTmakeSHFromDigi        }
+physics.producers.CaloHitMakerFast : { @table::TrigProducers.producers.CaloHitMakerFastFromDigi }

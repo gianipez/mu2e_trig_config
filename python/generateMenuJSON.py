@@ -12,7 +12,7 @@ def capitalize(word):
     nn = word[0].upper()
     return nn + word[nLetters:]
 
-def generateLogger(args, dictLog, logName):
+def generateLogger(args, dictLog, logName, dictStreams):
     loggerFileName       = args.outdir+"/"+logName+'Menu.fcl'
     loggerConfigFileName = args.outdir+"/"+logName+'Config.fcl'
    
@@ -37,8 +37,8 @@ def generateLogger(args, dictLog, logName):
         #
         loggerConfig.write('   {}:'.format(streamName)+' { \n')
         loggerConfig.write('      module_type: RootDAQOutput \n')
-        loggerConfig.write('      SelectEvents : {}\n'.format(dictLog[k]['paths'].replace("'",'"')))
-        loggerConfig.write("      maxSubRuns   : 1\n")
+        loggerConfig.write('      SelectEvents : {}\n'.format(json.dumps(dictStreams[k])))
+        loggerConfig.write('      maxSubRuns   : 1\n')
         loggerConfig.write('      fileName     : "{}.art\"\n'.format(k))
         loggerConfig.write('   }\n\n')
     loggerConfig.write("}\n")
@@ -70,7 +70,7 @@ def generateLogger(args, dictLog, logName):
 ##
 ##
 ################################################################################
-def generateMenu(args,  dictMenu, menuName):
+def generateMenu(args,  dictMenu, menuName, dictStreams, proc_name):
     trigMenuFileName = args.outdir+"/"+menuName+'.fcl'
     psConfigFileName = args.outdir+"/"+menuName+'PSConfig.fcl'
     
@@ -102,8 +102,25 @@ def generateMenu(args,  dictMenu, menuName):
         for i in range(1,len(vv)): streamName = streamName + capitalize(vv[i])
         psConfig.write("   {}PS:".format(streamName)+" { \n")
         psConfig.write("      module_type: PrescaleEvent \n")
-        psConfig.write("      eventModeConfig : {}\n".format(dictMenu[path]['eventModeConfig']))
+        evtModes = dictMenu[path]['eventModeConfig']
+        psInput = "[ "
+        notFirst = False
+        for ll in range(len(evtModes)):
+            if notFirst: psInput += ","
+            psInput += " { eventMode: "+"{}".format(evtModes[ll]["eventMode"])+" prescale:{}".format(evtModes[ll]["prescale"])+"}"
+            notFirst = True
+        psInput += " ]"
+        
+        psConfig.write("      eventModeConfig : {}\n".format(psInput))
         psConfig.write("}\n\n")
+        
+        vv=dictMenu[path]['eventModeConfig']
+        for dd in vv:
+            for s in dd['streams']:
+                if path not in dictStreams[s]:
+                    trg_path = proc_name+":"+path
+                    dictStreams[s].append(trg_path)
+        
     #
     print("[generateMenu] {} TRIGGER PATHS FOUND (): {}".format(menuName, len(list_of_calo_trk_paths), list_of_calo_trk_paths)) 
     #
@@ -124,19 +141,27 @@ def generate(args):
         conf = json.load(f)
         keys = conf.keys()
         print("[generateMenuJSON] KEYS FOUND: {}".format(keys))
-    
+        data_streams = {}
+        for k in conf['dataLogger_streams']:
+            data_streams[k] = []
+
         dict_trkcal_triggers = conf['trigger_paths']
-        generateMenu(args, dict_trkcal_triggers, 'trigMenu')
+        trkcal_proc_name     = conf['trkcal_filter_process_name']
+        generateMenu(args, dict_trkcal_triggers, 'trigMenu', data_streams, trkcal_proc_name)
+        print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))        
 
         dict_agg_triggers = conf['agg_trigger_paths']
-        generateMenu(args, dict_agg_triggers, 'aggMenu')
-        
+        add_proc_name     = conf['crv_agg_process_name']
+        generateMenu(args, dict_agg_triggers, 'aggMenu', data_streams, add_proc_name)
+
         #now produce the logger menus
         dict_logger = conf['dataLogger_streams']
-        generateLogger(args, dict_logger, 'trigLogger')
+        generateLogger(args, dict_logger, 'trigLogger', data_streams)        
         #
         dict_logger = conf['lumiLogger_streams']
-        generateLogger(args, dict_logger, 'trigLumiLogger')
+        lumi_streams =  {}
+        lumi_streams['lumi'] = []
+        generateLogger(args, dict_logger, 'trigLumiLogger', lumi_streams)
         
    
     # psConfig.write("}\n")

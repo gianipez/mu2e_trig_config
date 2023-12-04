@@ -1,4 +1,3 @@
-# -*- mode: tcl -*-
 #------------------------------------------------------------------------------
 # this file includes all the prolog needed to run the reconstruction
 # at the trigger level and the filters used to make the trigger decision
@@ -14,39 +13,55 @@ TrigDAQProducers : {
       makeTrkFrag: 1
       module_type: "ArtFragmentsFromDTCEvents"
    }  
+
+   binaryOutput: {
+      #      module_type     : BinaryPacketsFromDataBlocks
+      module_type     : ArtBinaryPacketsFromDigis
+      strawDigiCollection : "makeSD"
+      caloDigiCollection  : "CaloDigiMaker"
+      crvDigiCollection   : "CrvDigi"
+      diagLevel       : 0
+      maxFullPrint    : 0
+
+      includeTracker : 0
+      includeCalorimeter : 0
+      includeCrv : 0
+      includeDMAHeaders: 1
+
+      generateTimestampTable : 0
+      tableFile              : "tsTable.bin"
+      timestampOffset        : 0
+
+      generateBinaryFile : 1
+      generateTextFile   : 0
+      #         outputFile      : "DTC_packets.bin"
+      #         maxDMABlockSize : 32000
+      #         bufferSize      : 1000
+   }
+   
+   
+   
 }
 
 TrigCalProducers : {
+   CaloHitMakerFast:
+   {
+      module_type   : "CaloHitsFromFragments"
+      diagLevel     : 0
+      caloTag       : "" #"daq:calo"
+      digiSampling  : 5
+      deltaTPulses  : 5.
+      nPEperMeV     : 30
+      noiseLevelMeV : 0.55
+      nSigmaNoise   : 4
+      # hitEDepMax    : 80.
+      hitEDepMax    : 1000. # for testing
+      hitEDepMin    : 1.0
+      caphriEDepMax : 5.0 #MeV
+      caphriEDepMin : 1.0 #MeV
+   }
    
-   CaloClusterFast: {
-      caloTag: "daq:calo"
-      caphriEDepMax: 5
-      caphriEDepMin: 1
-      deltaTPulses: 5
-      diagLevel: 0
-      digiSampling: 5
-      hitEDepMax: 1000
-      hitEDepMin: 1
-      module_type: "CaloHitsFromFragments"
-      nPEperMeV: 30
-      nSigmaNoise: 4
-      noiseLevelMeV: 5.5e-1
-   }
-   #
-
-   CaloClusterFastFromDigi: {
-      EminSeed: 10
-      EnoiseCut: 1
-      ExpandCut: 1
-      caloHitCollection: "CaloHitMakerFast:calo"
-      deltaTime: 10
-      diagLevel: 0
-      extendSearch: true
-      minSiPMPerHit: 2
-      module_type: "CaloClusterFast"
-      timeOffset: -61
-   }
-   CaloHitMakerFast: {
+   CaloHitMakerFastFromDigi: {
       ProtonBunchTimeTag: "EWMProducer"
       caloDigiCollection: "CaloDigiMaker"
       caphriCrystalID: [
@@ -63,6 +78,23 @@ TrigCalProducers : {
       nSigmaNoise: 4
       noiseLevelMeV: 5.5e-1
    }
+
+
+   CaloClusterFast: {
+      EminSeed: 10
+      EnoiseCut: 1
+      ExpandCut: 1
+      caloHitCollection: "CaloHitMakerFast:calo"
+      deltaTime: 10
+      diagLevel: 0
+      extendSearch: true
+      minSiPMPerHit: 2
+      module_label: "CaloClusterFast"
+      module_type: "CaloClusterFast"
+      timeOffset: -61
+   }
+   #
+
 }
 
 ################################################################################
@@ -76,6 +108,26 @@ TrigTrkProducers : {
       module_type: "StrawRecoFromFragments"
       trkTag: "daq:trk"
       useTrkADC: 0
+      printLevel : 0
+      FitType : 5
+      UseCalorimeter : false
+      clusterDt : 100
+      minimumEnergy : 0.0
+      maximumEnergy : 0.0035
+      minimumRho   : 0.
+      maximumRho   : 800.
+      crossTalkEnergy : 0.007
+      crossTalkMinimumTime : -1
+      crossTalkMaximumTime : 100
+      minimumTime : 500
+      maximumTime : 2000
+      FilterHits : true
+      WriteStrawHitCollection : false
+      FlagCrossTalk : false
+      CaloClusterCollectionTag : "CaloClusterFast"
+      ProtonBunchTimeTag : "EWMProducer"
+      TrackerFragmentTag : "daq:trk"
+      
    }
    TTmakePH: {
       CheckWres: true
@@ -131,13 +183,14 @@ TrigTrkProducers : {
       BackgroundMask: [
          "Background"
       ]
+      OutputLevel: "uniquepanel"
       ClusterAlgorithm: 1
       ClusterPositionError: 10
       ComboHitCollection: "TTmakePH"
       DebugLevel: 0
       FilterHits: true
       KerasQuality: 5e-1
-      KerasWeights: "Offline/TrkHitReco/data/TrainBkgDiag.dat"
+      KerasWeights: "Offline/TrkHitReco/data/TrainBkgDiagStationSpatial.dat"
       MinActiveHits: 3
       MinNPlanes: 2
       SaveBkgClusters: false
@@ -161,6 +214,7 @@ TrigTrkProducers : {
          ]
          TestFlag: true
          TimeRMS: 2
+         DistanceMethod: 0
       }
       module_type: "FlagBkgHits"
    }
@@ -270,10 +324,133 @@ TrigTprProducers : {
       module_type: "TimeClusterFinder"
    }
 
-   
+   TThelixFinder: {
+      AveragePitch: 6e-1
+      CentralPerpResolution: 12
+      CentralRadialResolution: 20
+      ComboHitCollection: "TTflagBkgHits"
+      DebugLevel: 0
+      DiagLevel: 0
+      DiagPlugin: {
+         diagLevel: 0
+         mcTruth: 0
+         tool_type: "RobustHelixFinderDiag"
+      }
+      Helicities: [
+         -1,
+         1
+      ]
+      HelixFitter: {
+         CaloClusterWeight: 10
+         CircleFitType: 0
+         CircleInitType: 0
+         DontUseFlag: [
+            "Outlier"
+         ]
+         HitErrorWeight: false
+         MinNPhi: 2
+         NPhiHistBins: 25
+         PhiHistRangeFactor: 1.2
+         RadiusWindow: 10
+         TripleRadius: false
+         UseCaloCluster: false
+         debugLevel: 0
+         diagLevel: 0
+         fitFZMaxLambda: 1000
+         fitFZMinLambda: 30
+         fitFZStepLambda: 10
+         initFZFrequencyArraySize: 200
+         initFZFrequencyBinsToIntegrate: 10
+         initFZFrequencyNMaxPeaks: 10
+         initFZFrequencyNSigma: 3
+         initFZFrequencyTolerance: 2
+         initFZMaxLambda: 1000
+         initFZMinLambda: 30
+         initFZStepLambda: 20
+         lambda0: 1e-1
+         lstep: 1e-2
+         maxAbsLambda: 700
+         maxCenterR: 700
+         maxDfDz: 1e-2
+         maxR: 600
+         maxXDPhi: 5
+         maxdist: 2000
+         maxdxy: 100
+         maxniter: 100
+         maxzsep: 1000
+         minAbsLambda: 10
+         minArea: 500
+         minCenterR: 100
+         minDfDz: 2e-3
+         minNHit: 5
+         minNStrawHits: 10
+         minR: 100
+         minXYResid: 5
+         mindist: 50
+         mindphi: 5e-1
+         minlambda: 1e-3
+         minzsep: 100
+         nLoopsdfdz: 2
+         ntripleMax: 500
+         ntripleMin: 5
+         sigmaPhi: 4.9e-1
+         targetintersect: false
+         targetradius: 600
+         trackerradius: 700
+         use_initFZ_from_dzFrequency: false
+      }
+      HelixNonStereoHitMVA: {
+         MVAWeights: "Offline/TrkPatRec/data/HelixNonStereoHitMVA.weights.xml"
+      }
+      HelixStereoHitMVA: {
+         MVAWeights: "Offline/TrkPatRec/data/HelixStereoHitMVA.weights.xml"
+      }
+      HitBackgroundBits: [
+         "Background",
+         "Noisy",
+         "Dead"
+      ]
+      HitSelectionBits: [
+         "TimeDivision"
+      ]
+      MaxChi2dXY: 5
+      MaxChi2dZPhi: 5
+      MaxChisquared: 25
+      MaxHitPhiChi2: 25
+      MaxIterations: 10
+      MaxPhiHitSeparation: 1
+      MaxRPull: 5
+      MaxRWDot: 1
+      MaxRadiusDiff: 100
+      MaxTransDistance: 80
+      MaxWireDistance: 200
+      MinMVA: 1e-1
+      MinNStrawHits: 10
+      MinRadiusErr: 20
+      PrefilterHits: true
+      PrintFrequency: 101
+      RPullScaleF: 1
+      SaveHelixFlag: [
+         "HelixOK"
+      ]
+      T0Calculator: {
+         CaloTimeErr: 5e-1
+         TrkToCaloTimeOffset: -3.1
+      }
+      TimeClusterCollection: "TTtimeClusterFinder"
+      UpdateStereo: false
+      UpdateStereoHits: false
+      UseHitMVA: false
+      UseTripletArea: false
+      module_label: "TThelixFinder"
+      module_type: "RobustHelixFinder"
+      targetconsistent: false
+      targetconsistent_init: false
+   }
+
    TTHelixMergerDeM: {
       HelixFinders: [
-         "TThelixFinder"
+         "TThelixFinder:Positive"
       ]
       debugLevel: 0
       deltanh: 5
@@ -283,7 +460,7 @@ TrigTprProducers : {
    }
    TTHelixMergerDeP: {
       HelixFinders: [
-         "TThelixFinder"
+         "TThelixFinder:Negative"
       ]
       debugLevel: 0
       deltanh: 5
@@ -317,7 +494,7 @@ TrigTprProducers : {
          BFieldCorrection: true
          BkgANNSHUSettings: [
             [
-               "Offline/Mu2eKinKal/data/TrainBkgTTtpr.dat",
+               "Offline/Mu2eKinKal/data/TrainBkgTrigger.dat",
                1e-2,
                "Inactive",
                1
@@ -503,7 +680,7 @@ TrigTprProducers : {
          BFieldCorrection: true
          BkgANNSHUSettings: [
             [
-               "Offline/Mu2eKinKal/data/TrainBkgTTtpr.dat",
+               "Offline/Mu2eKinKal/data/TrainBkgTrigger.dat",
                1e-2,
                "Inactive",
                1
@@ -891,7 +1068,7 @@ TrigCprProducers : {
          BFieldCorrection: true
          BkgANNSHUSettings: [
             [
-               "Offline/Mu2eKinKal/data/TrainBkgTTtpr.dat",
+               "Offline/Mu2eKinKal/data/TrainBkgTrigger.dat",
                1e-2,
                "Inactive",
                1
@@ -1077,7 +1254,7 @@ TrigCprProducers : {
          BFieldCorrection: true
          BkgANNSHUSettings: [
             [
-               "Offline/Mu2eKinKal/data/TrainBkgTTtpr.dat",
+               "Offline/Mu2eKinKal/data/TrainBkgTrigger.dat",
                1e-2,
                "Inactive",
                1
@@ -1285,32 +1462,32 @@ TrigCprProducers : {
 #
 ################################################################################
 TrigAprProducers : {
-   TThelixFinder: {
-      caloClusterSigma: 30
-      ccCollLabel: "CaloClusterFast"
-      chCollLabel: "TTflagBkgHits"
-      chi2LineSaveThresh: 3
-      isoMinHitsNear: 2
-      isoRad: 150
-      max2PiAmbigResidual: 2
-      maxCircleRecoverSigma: 5
-      maxDeltaPhi: 2
-      maxLineRecoverSigma: 5
-      maxPhiZResidual: 2
-      maxSeedCircleResidual: 1
-      maxZWindow: 500
-      minDistCut: 20
-      minFinalSeedHits: 15
-      minNHelixHits: 15
-      minSeedCircleHits: 7
-      module_type: "HelixFinder"
-      nPhiBins: 36
-      nPhiPeakBins: 3
-      phiPeakThresh: 5
-      phiWindow: 45
-      tcCollLabel: "TTtimeClusterFinder"
-      updateCircleErrThresh: 5
-   }
+   # TThelixFinder: {
+      #    caloClusterSigma: 30
+      #    ccCollLabel: "CaloClusterFast"
+      #    chCollLabel: "TTflagBkgHits"
+      #    chi2LineSaveThresh: 3
+      #    isoMinHitsNear: 2
+      #    isoRad: 150
+      #    max2PiAmbigResidual: 2
+      #    maxCircleRecoverSigma: 5
+      #    maxDeltaPhi: 2
+      #    maxLineRecoverSigma: 5
+      #    maxPhiZResidual: 2
+      #    maxSeedCircleResidual: 1
+      #    maxZWindow: 500
+      #    minDistCut: 20
+      #    minFinalSeedHits: 15
+      #    minNHelixHits: 15
+      #    minSeedCircleHits: 7
+      #    module_type: "HelixFinder"
+      #    nPhiBins: 36
+      #    nPhiPeakBins: 3
+      #    phiPeakThresh: 5
+      #    phiWindow: 45
+      #    tcCollLabel: "TTtimeClusterFinder"
+      #    updateCircleErrThresh: 5
+      # }
 }
 
 ################################################################################
