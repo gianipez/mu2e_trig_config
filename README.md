@@ -19,5 +19,4 @@ This directory houses the following scripts:
     2. the trigger sequences that use the CRV (+possibly the Trk+Cal) data: `aggMenuPSConfig.fcl`, `aggMenu.fcl`
     3. the datalogger: `trigLoggerConfig.fcl`, `trigLoggerMenu.fcl`
     4. the lumiLogger: `trigLumiLoggerConfig.fcl`, `trigLumiLoggerMenu.fcl`
- - `upload_table.py`: it uploads the `data/trigConfig.json` JSON file to the MongoDb
- - `read_table.py`: it downloads the table specified at run time by the option `-v `
+ 
