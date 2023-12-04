@@ -12,7 +12,7 @@
             "bit" : 100 ,
             "enabled": 1, 
             "eventModeConfig": [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_main", "dqm_trigger" ] }, 
-                                {"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_trk_calib" ]           }
+                                {"eventMode":"OffSpill", "prescale":1, "streams": [ "physics_trk_calib" ]           }
                                ]
         } ,
         "tprDeP_highP_stopTarg" : { 
