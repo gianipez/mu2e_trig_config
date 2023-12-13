@@ -172,24 +172,14 @@
     },
     
     "dataLogger_streams": {
-        "physics_main": {
-            "enabled" : 1
-        },
-        "physics_trk_calib": {
-            "enabled" : 1
-        },
-        "physics_minBias": {
-            "enabled" : 1
-        },
-        "dqm_trigger": {
-            "enabled" : 1
-        }
+        "physics_main":      { "enabled" : 1 },
+        "physics_minBias" :      { "enabled" : 1 },
+        "physics_trk_calib" :      { "enabled" : 1 },
+        "dqm_trigger" :      { "enabled" : 1 }
     },
     
     "lumiLogger_streams":{
-        "lumi": {
-            "enabled" : 1
-        }
+        "lumi": { "enabled" : 1 }
     }
     
 

@@ -13,8 +13,12 @@ def capitalize(word):
     return nn + word[nLetters:]
 
 def generateLogger(args, dictLog, logName, dictStreams):
-    loggerFileName       = args.outdir+"/"+logName+'Menu.fcl'
-    loggerConfigFileName = args.outdir+"/"+logName+'Config.fcl'
+    name_app = '.fcl'
+    if args.evtMode != 'all':
+        name_app = '_'+args.evtMode+'.fcl'
+    
+    loggerFileName       = args.outdir+"/"+logName+name_app
+    loggerConfigFileName = args.outdir+"/"+logName+'Config'+name_app
    
     os.system("chmod 755 {}".format(loggerConfigFileName))
     os.system("chmod 755 {}".format(loggerFileName))
@@ -71,8 +75,11 @@ def generateLogger(args, dictLog, logName, dictStreams):
 ##
 ################################################################################
 def generateMenu(args,  dictMenu, menuName, dictStreams, proc_name):
-    trigMenuFileName = args.outdir+"/"+menuName+'.fcl'
-    psConfigFileName = args.outdir+"/"+menuName+'PSConfig.fcl'
+    name_app = '.fcl'
+    if args.evtMode != 'all':
+        name_app = '_'+args.evtMode+'.fcl'
+    trigMenuFileName = args.outdir+"/"+menuName+name_app
+    psConfigFileName = args.outdir+"/"+menuName+'PSConfig'+name_app
     
     os.system("chmod 755 {}".format(trigMenuFileName))
     os.system("chmod 755 {}".format(psConfigFileName))
@@ -88,7 +95,14 @@ def generateMenu(args,  dictMenu, menuName, dictStreams, proc_name):
     list_of_calo_trk_paths = []
     for k in dictMenu:
         if dictMenu[k]['enabled'] == 0: continue
-        list_of_calo_trk_paths.append(k)
+        evtModes = dictMenu[k]['eventModeConfig']
+        evtModeCheck= args.evtMode == "all"
+        for ll in range(len(evtModes)):
+            if args.evtMode != "all" and args.evtMode == evtModes[ll]["eventMode"]: 
+                evtModeCheck = True
+                break
+        if evtModeCheck: 
+            list_of_calo_trk_paths.append(k)
 
     for i in range(len(list_of_calo_trk_paths)):
         path = list_of_calo_trk_paths[i]
@@ -106,6 +120,7 @@ def generateMenu(args,  dictMenu, menuName, dictStreams, proc_name):
         psInput = "[ "
         notFirst = False
         for ll in range(len(evtModes)):
+            if args.evtMode != "all" and args.evtMode != evtModes[ll]["eventMode"]: continue
             if notFirst: psInput += ","
             psInput += " { eventMode: "+"{}".format(evtModes[ll]["eventMode"])+" prescale:{}".format(evtModes[ll]["prescale"])+"}"
             notFirst = True
@@ -137,7 +152,9 @@ def generateMenu(args,  dictMenu, menuName, dictStreams, proc_name):
 
 def generate(args):
     
-    with open('data/dictMenu.json') as f:
+    tag = args.menuFile.split('/')[-1].split('.')[0]
+
+    with open(args.menuFile) as f:
         conf = json.load(f)
         keys = conf.keys()
         print("[generateMenuJSON] KEYS FOUND: {}".format(keys))
@@ -147,21 +164,21 @@ def generate(args):
 
         dict_trkcal_triggers = conf['trigger_paths']
         trkcal_proc_name     = conf['trkcal_filter_process_name']
-        generateMenu(args, dict_trkcal_triggers, 'trigMenu', data_streams, trkcal_proc_name)
+        generateMenu(args, dict_trkcal_triggers, 'trig_'+tag, data_streams, trkcal_proc_name)
         print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))        
 
         dict_agg_triggers = conf['agg_trigger_paths']
         add_proc_name     = conf['crv_agg_process_name']
-        generateMenu(args, dict_agg_triggers, 'aggMenu', data_streams, add_proc_name)
+        generateMenu(args, dict_agg_triggers, 'agg_'+tag, data_streams, add_proc_name)
 
         #now produce the logger menus
         dict_logger = conf['dataLogger_streams']
-        generateLogger(args, dict_logger, 'trigLogger', data_streams)        
+        generateLogger(args, dict_logger, 'trigLogger_'+tag, data_streams)        
         #
         dict_logger = conf['lumiLogger_streams']
         lumi_streams =  {}
         lumi_streams['lumi'] = []
-        generateLogger(args, dict_logger, 'trigLumiLogger', lumi_streams)
+        generateLogger(args, dict_logger, 'trigLumiLogger_'+tag, lumi_streams)
         
    
     # psConfig.write("}\n")
@@ -176,12 +193,18 @@ def generate(args):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
+    parser.add_argument("-mf", "--menu-file",
+                        dest="menuFile", default="data/physMenu.json",
+                        help="Input Menu file")
     parser.add_argument("-q", "--quiet",
                         action="store_false", dest="verbose", default=True,
                         help="don't print status messages to stdout")
     parser.add_argument("-o", "--outdir",
                         dest="outdir", default="gen",
                         help="Outout directory")
+    parser.add_argument("-evtMode", "--event-mode",dest="evtMode",
+                        default="all",
+                        help="Specify a single event mode if you want a single-event-mode Menu: OnSpill, OffSpill. The default is 'all'")
 
     args = parser.parse_args()
     
