@@ -668,13 +668,13 @@ TrigAprProducers : {
       chCollLabel2               : "TTmakeSH"
       ccCollLabel                : "CaloClusterFast"
    }
-   
+
    TTAprHelixFinder: { @table::CalPatRec.producers.AgnosticHelixFinder
       chCollLabel             : "TTflagBkgHits"
       tcCollLabel             : "TTTZClusterFinder"
       ccCollLabel             : "CaloClusterFast"
    }
-   
+
    TTAprHelixMerger: {
       HelixFinders: [
          "TTAprHelixFinder"
