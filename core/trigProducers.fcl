@@ -845,6 +845,7 @@ TrigCstProducers : {
     minPeak: 10
     module_type: "LineFinder"
     t0offset: 0
+    MaxPairs: 500
   }
   CstSimpleTimeCluster: {
     ComboHitCollection: "TTmakePH"
@@ -867,6 +868,9 @@ TrigCstProducers : {
     module_type: "MergeTriggerInfo"
   }
   cstTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  cstCosmicTrackSeedTriggerInfoMerger: {
     module_type: "MergeTriggerInfo"
   }
 }
