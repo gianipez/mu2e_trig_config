@@ -1078,6 +1078,8 @@ TrigCstFilters:{
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
   cstTimeClusterPS : { module_type: PrescaleEvent
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
+  cstCosmicTrackSeedPS : { module_type: PrescaleEvent
+      eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
 
   cstSDCountFilter: {
     caloDigiCollection: "notUsed"
@@ -1104,7 +1106,10 @@ TrigCstFilters:{
       "HelixConverged"
     ]
     debugLevel: 0
-    minnsh: 8
+    minNStrawHits : 8
+    minFracStrawHits : 0
+    maxTheta : 1.6
+    minNPanelStereo : 0
     module_type: "CosmicSeedFilter"
   }
   cstTimeClusterSDCountFilter: {
@@ -1124,6 +1129,37 @@ TrigCstFilters:{
     module_type: "TimeClusterFilter"
     requireCaloCluster: false
     timeClusterCollection: "CstSimpleTimeCluster"
+  }
+  cstCosmicTrackSeedSDCountFilter: {
+    caloDigiCollection: "notUsed"
+    maxCaloEnergy: -1
+    maxNCaloDigi: -1
+    maxNStrawDigi: 10000
+    minNCaloDigi: -1
+    minNStrawDigi: 8
+    module_type: "DigiFilter"
+    strawDigiCollection: "makeSD"
+    useCaloDigi: false
+    useStrawDigi: true
+  }
+  cstCosmicTrackSeedTCFilter: {
+    minNStrawHits: 4
+    module_type: "TimeClusterFilter"
+    requireCaloCluster: false
+    timeClusterCollection: "CstSimpleTimeCluster"
+  }
+  cstCosmicTrackSeedCTSFilter: {
+    module_type: "CosmicSeedFilter"
+    CosmicTrackSeedCollection: "CstLineFinder"
+    cosmicseedFitFlag: [
+      "HelixOK",
+      "HelixConverged"
+    ]
+    debugLevel: 0
+    minNStrawHits : 6
+    minFracStrawHits : 0.75
+    maxTheta : 1 
+    minNPanelStereo : 5
   }
 
 }

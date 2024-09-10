@@ -276,6 +276,12 @@ TrigCstPaths: {
       @sequence::TrigRecoSequences.trkPrepareHitsFast,
       cstTimeClusterSDCountFilter,
       CstSimpleTimeCluster, cstTimeClusterTCFilter, cstTimeClusterTriggerInfoMerger ]
+   cstCosmicTrackSeed : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstCosmicTrackSeedPS,
+      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      cstCosmicTrackSeedSDCountFilter,
+      CstSimpleTimeCluster, cstCosmicTrackSeedTCFilter, CstLineFinder, cstCosmicTrackSeedCTSFilter,
+      cstCosmicTrackSeedTriggerInfoMerger ]
+
 
 
 }
