@@ -148,15 +148,15 @@
                                  {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_calo_calib" ]        }]
         },
 
-        "cst":{
-            "bit" : 300 ,
-            "enabled": 1,
-            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":10000, "streams": [ "physics_trk_calib" ]},
-                                 {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
-        },
-
         "cstTimeCluster":{
             "bit" : 310 ,
+            "enabled": 1,
+            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":10000, "streams": [ "physics_trk_calib" ]},
+                                 {"eventMode":"OffSpill", "prescale":1000, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
+        },
+
+        "cstCosmicTrackSeed":{
+            "bit" : 320 ,
             "enabled": 1,
             "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":10000, "streams": [ "physics_trk_calib" ]},
                                  {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]}]

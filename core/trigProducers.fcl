@@ -235,7 +235,6 @@ Mu2eKinKalTrigger : {
 
   LOOPHELIX : {
     @table::Mu2eKinKal.LOOPHELIX
-    ExtrapolateSurfaces : []
     SeedErrors: [ 5, 5, 5, 5, 2e-2, 5 ]
     ComboHitCollection : "TTmakeSH"
     CaloClusterCollection : "CaloClusterFast"
@@ -845,6 +844,7 @@ TrigCstProducers : {
     minPeak: 10
     module_type: "LineFinder"
     t0offset: 0
+    MaxPairs: 500
   }
   CstSimpleTimeCluster: {
     ComboHitCollection: "TTmakePH"
@@ -867,6 +867,9 @@ TrigCstProducers : {
     module_type: "MergeTriggerInfo"
   }
   cstTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  cstCosmicTrackSeedTriggerInfoMerger: {
     module_type: "MergeTriggerInfo"
   }
 }
