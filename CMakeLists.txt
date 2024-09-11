@@ -5,6 +5,7 @@ find_package(cetmodules)
 project(mu2e_trig_config VERSION 3.02.00)
 
 include(CetCMakeEnv)
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 cet_cmake_env()
 cet_cmake_config()
 
