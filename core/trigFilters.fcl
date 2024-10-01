@@ -1752,7 +1752,9 @@ TrigCalFilters:{
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
   caloFastRMCPS       : { module_type: PrescaleEvent
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
-
+  caloHitRecN0SourceFilter : { module_type: PrescaleEvent
+      eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
+      
   caloFastCosmicFilter: {
     CaloClusterModuleLabel: "CaloClusterFast"
     InnerRadius: 460
@@ -1808,6 +1810,20 @@ TrigCalFilters:{
     diagLevel: 0
     module_type: "CaloClusterCounterFilter"
   }
+  
+  caloHitRecN0SourceFilter: {
+      caloDigiCollection: "CaloDigiMaker"
+      maxCaloEnergy: -1
+      maxNCaloDigi: 5000
+      maxNStrawDigi: -1
+      minNCaloDigi: -1
+      minNStrawDigi: -1
+      module_type: "DigiFilter"
+      strawDigiCollection: "notUsed"
+      triggerPath: "minBiasCaloDigiCount"
+      useCaloDigi: true
+      useStrawDigi: false
+   }
 
 }
 
