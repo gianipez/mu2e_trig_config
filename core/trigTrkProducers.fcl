@@ -1,0 +1,71 @@
+BEGIN_PROLOG
+
+TrigTrkProducers : {
+  TTmakeSH: {
+    diagLevel: 0
+    module_type: "StrawHitRecoFromFragments"
+    printLevel : 0
+    FitType : 5
+    UseCalorimeter : false
+    clusterDt : 100
+    minimumEnergy : 0.0
+    maximumEnergy : 0.0035
+    minimumRho   : 0.
+    maximumRho   : 800.
+    crossTalkEnergy : 0.007
+    crossTalkMinimumTime : -1
+    crossTalkMaximumTime : 100
+    minimumTime : 500
+    maximumTime : 2000
+    FilterHits : true
+    WriteStrawHitCollection : false
+    FlagCrossTalk : false
+    CaloClusterCollectionTag : "notNow"
+    ProtonBunchTimeTag : "EWMProducer"
+    TrackerDataDecoderTag : "artFragFromDTCEvents"
+
+   }
+   TTmakePH: {
+      @table::TrkHitReco.producers.makePH
+      TestFlag   : false # not needed, since TTmakeSH is filtering
+      FilterHits : false
+      ComboHitCollection    : "TTmakeSH"
+      StrawHitSelectionBits : []
+      StrawHitMask          : []
+   }
+   # combine panel hits in a station
+   TTmakeSTH : {
+      @table::TrkHitReco.producers.makeSTH
+      TestFlag           : false
+      FilterHits         : true
+      ComboHitCollection : "TTmakePH"
+   }
+
+   TTmakeSHFromDigi: {
+      @table::TrkHitReco.producers.makeSH
+      FitType                 : 5
+      FilterHits              : true
+      WriteStrawHitCollection : false
+      StrawDigiADCWaveformCollectionTag : "notUsed"
+   }
+
+   TTflagBkgHits: {
+      @table::TrkHitReco.producers.FlagBkgHits
+      ComboHitCollection   : "TTmakeSTH"
+      FilterHits           : true
+   }
+
+  TTDeltaFinder: {
+    @table::CalPatRec.producers.DeltaFinder
+    chCollTag                     : TTmakePH                # input coll
+    sschCollTag                   : TTmakeSH                # input coll
+    writeFilteredComboHits        : 1
+  }
+
+  TTHelixFinderParams: {
+    @table::TrkReco.HelixFinderParams
+    maxEDepAvg : 0.0025
+  }
+}
+
+END_PROLOG

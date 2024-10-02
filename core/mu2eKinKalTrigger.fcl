@@ -1,0 +1,77 @@
+BEGIN_PROLOG
+
+################################################################################
+#   Common configuration for running the Kalman filter instances
+#
+#
+################################################################################
+Mu2eKinKalTrigger : {
+  MAT: {
+    @table::Mu2eKinKal.MAT
+  }
+
+  KKFIT: {
+    @table::Mu2eKinKal.KKFIT
+    AddHits : false
+    AddMaterial : false
+    MaterialCorrection : true
+    MaxCaloClusterDt : 25.0 # loose timing cut; needed for DeP for now TODO
+    MaxCaloClusterDOCA : 150.0 # mm
+    SampleSurfaces : ["TT_Mid"]
+    SaveTrajectory : "T0"
+  }
+
+  SEEDFIT: {
+    @table::Mu2eKinKal.SEEDFIT
+    MaxNIter : 2
+    MetaIterationSettings : [
+      [ 4.0, "CADSHU" ],
+      [ 3.0, "CADSHU" ]
+    ]
+    CADSHUSettings : [
+      # maxdoca, maxderr, minrdrift, maxrdrift, flag, , allowed, freeze, diag
+      [ 60.0, 1e6, 5.0, 5.0, "TOT", "Null:Inactive", "", 0 ],
+      [ 40.0, 1e6, 5.0, 5.0, "TOT", "Null:Inactive", "", 0 ]
+    ]
+    StrawXingUpdaterSettings : [
+      [10.0, -1.0, -1.0, true, 0 ]
+    ]
+    BkgANNSHUSettings : [
+    ]
+  }
+
+  SEEDEXT: {
+    @table::Mu2eKinKal.SEEDEXT
+    MaxNIter : 2
+    BFieldCorrection : true
+
+    CADSHUSettings : [
+      [ 30.0, 1e6, 5.0, 5.0, "TOT", "Null:Inactive", "", 0 ],
+      [ 20.0, 20.0, 5.0, 5.0, "TOT", "Null:Inactive", "", 0 ]
+    ]
+    MetaIterationSettings : [
+      [ 2.0, "CADSHU" ],
+      [ 0.0, "CADSHU:BkgANNSHU" ]
+    ]
+    StrawXingUpdaterSettings : [
+      [10.0, -1.0, -1.0, true, 0 ]
+    ]
+    BkgANNSHUSettings : [
+      [ "Offline/Mu2eKinKal/data/TrainBkgTrigger.dat",0.2,"Inactive", 1]
+    ]
+  }
+
+  LOOPHELIX : {
+    @table::Mu2eKinKal.LOOPHELIX
+    SeedErrors: [ 5, 5, 5, 5, 2e-2, 5 ]
+    ComboHitCollection : "TTmakeSH"
+    CaloClusterCollection : "CaloClusterFast"
+  }
+
+  KINEMATICLINE : {
+    @table::Mu2eKinKal.KINEMATICLINE
+    ExtrpolateSurfaces : []
+  }
+}
+
+END_PROLOG

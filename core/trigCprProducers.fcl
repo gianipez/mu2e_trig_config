@@ -1,0 +1,58 @@
+BEGIN_PROLOG
+
+TrigCprProducers : {
+  TTCalHelixMergerDe: {
+    HelixFinders: [
+      "TTCalHelixFinderDe"
+    ]
+    debugLevel: 0
+    deltanh: 5
+    module_type: "MergeHelices"
+    scaleXY: 1.1
+    scaleZPhi: 7.5e-1
+    MinHitOverlapFraction: 0.5
+    MinNHitOverlap: 10
+  }
+  TTCalHelixMergerUe: {
+    HelixFinders: [
+      "TTCalHelixFinderUe"
+    ]
+    debugLevel: 0
+    deltanh: 5
+    module_type: "MergeHelices"
+    scaleXY: 1.1
+    scaleZPhi: 7.5e-1
+    MinHitOverlapFraction: 0.5
+    MinNHitOverlap: 10
+  }
+
+  TTCalSeedFitDe: {
+    module_type : LoopHelixFit
+    MaterialSettings : { @table::Mu2eKinKalTrigger.MAT     }
+    KKFitSettings    : { @table::Mu2eKinKalTrigger.KKFIT   }
+    FitSettings      : { @table::Mu2eKinKalTrigger.SEEDFIT }
+    ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
+    ModuleSettings   : {
+      @table::Mu2eKinKalTrigger.LOOPHELIX
+      HelixSeedCollections: ["TTCalHelixMergerDe"]
+      FitParticle         : 11
+    }
+    UsePDGCharge     : false
+    FitDirection     : 0
+  }
+
+  cprDeHighPStopTargTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  cprDeHighPTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  cprDeLowPStopTargTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  cprHelixDeTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+}
+
+END_PROLOG
