@@ -8,15 +8,15 @@
 #include "Offline/TrkPatRec/fcl/prolog.fcl"
 #include "Offline/CalPatRec/fcl/prolog.fcl"
 
-#include "mu2e_trig_config/core/trigDAQProducers.fcl"
-#include "mu2e_trig_config/core/trigCalProducers.fcl"
-#include "mu2e_trig_config/core/trigTrkProducers.fcl"
-#include "mu2e_trig_config/core/mu2eKinKalTrigger.fcl"
-#include "mu2e_trig_config/core/trigTprProducers.fcl"
-#include "mu2e_trig_config/core/trigCprProducers.fcl"
-#include "mu2e_trig_config/core/trigAprProducers.fcl"
-#include "mu2e_trig_config/core/trigMprProducers.fcl"
-#include "mu2e_trig_config/core/trigCstProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigDAQProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigCalProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigTrkProducers.fcl"
+#include "mu2e_trig_config/core/producers/mu2eKinKalTrigger.fcl"
+#include "mu2e_trig_config/core/producers/trigTprProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigCprProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigAprProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigMprProducers.fcl"
+#include "mu2e_trig_config/core/producers/trigCstProducers.fcl"
 
 BEGIN_PROLOG
 
