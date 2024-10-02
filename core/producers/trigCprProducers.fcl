@@ -1,58 +1,258 @@
 BEGIN_PROLOG
 
 TrigCprProducers : {
-  TTCalHelixMergerDe: {
-    HelixFinders: [
-      "TTCalHelixFinderDe"
-    ]
-    debugLevel: 0
-    deltanh: 5
-    module_type: "MergeHelices"
-    scaleXY: 1.1
-    scaleZPhi: 7.5e-1
-    MinHitOverlapFraction: 0.5
-    MinNHitOverlap: 10
-  }
-  TTCalHelixMergerUe: {
-    HelixFinders: [
-      "TTCalHelixFinderUe"
-    ]
-    debugLevel: 0
-    deltanh: 5
-    module_type: "MergeHelices"
-    scaleXY: 1.1
-    scaleZPhi: 7.5e-1
-    MinHitOverlapFraction: 0.5
-    MinNHitOverlap: 10
-  }
 
-  TTCalSeedFitDe: {
-    module_type : LoopHelixFit
-    MaterialSettings : { @table::Mu2eKinKalTrigger.MAT     }
-    KKFitSettings    : { @table::Mu2eKinKalTrigger.KKFIT   }
-    FitSettings      : { @table::Mu2eKinKalTrigger.SEEDFIT }
-    ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
-    ModuleSettings   : {
-      @table::Mu2eKinKalTrigger.LOOPHELIX
-      HelixSeedCollections: ["TTCalHelixMergerDe"]
-      FitParticle         : 11
-    }
-    UsePDGCharge     : false
-    FitDirection     : 0
-  }
+   TTCalHelixFinderDe: {
+      doSingleOutput: true
+      HelixFinderAlg: {
+         BackgroundSelectionBits: [
+            "Background",
+            "Noisy",
+            "Dead"
+         ]
+         HelixFitSelectionBits: []
+         chi2hel3DMax: 9
+         chi2xyMax: 5
+         chi2zphiMax: 5
+         debugLevel: 0
+         debugLevel2: 0
+         dfdzErr: 1e-1
+         maxNHitsRatio: 1.5
+         diagLevel: 0
+         distPatRec: 100
+         dzOverHelPitchCut: 7e-1
+         filter: true
+         hitChi2Max: 25
+         initDfDz: 0
+         maxAbsTanDip: 2
+         maxDfDz: 2.5e-2
+         maxElectronHitEnergy: 5e-3
+         maxP: 150
+         maxPanelToHelixDPhi: 1.309
+         maxXDPhi: 5
+         maxZTripletSearch: 0
+         minAbsTanDip: 3e-1
+         minArea: 5000
+         minDeltaNShPatRec: 2
+         minDfDz: 2e-3
+         minNHit: 10
+         minP: 50
+         mindist: 500
+         mostProbableDfDz: 4.75e-3
+         nHitsMaxPerPanel: 1
+         plotall: false
+         sigmaPhi: 1.636e-1
+         targetconsistent: 0
+         usetarget: true
+         weight3D: 1.2e-1
+         weightXY: 1.11
+         weightZPhi: 7.5e-1
+         xyWeights: false
+         zWeights: false
+      }
+      StrawHitCollectionLabel: "TTflagBkgHits"
+      TimeClusterCollectionLabel: "TTCalTimePeakFinder"
+      debugLevel: 0
+      diagLevel: 0
+      diagPlugin: {
+         mcTruth: 0
+         mcUtils: {
+            strawDigiMCCollTag: "compressDigiMCs"
+            tool_type: "TrkPatRecMcUtils"
+            comboHitCollTag: "TTmakeSH"
+         }
+         tool_type: "CalHelixFinderDiag"
+      }
+      Helicities: [
+         -1,
+         1
+      ]
+      fitdirection: 0
+      fitparticle: 11
+      doSingleOutput: true
+      maxEDepAvg: 0.0025
+      minNHitsTimeCluster: 10
+      module_type: "CalHelixFinder"
+      printFrequency: 100
+   }
 
-  cprDeHighPStopTargTriggerInfoMerger: {
-    module_type: "MergeTriggerInfo"
-  }
-  cprDeHighPTriggerInfoMerger: {
-    module_type: "MergeTriggerInfo"
-  }
-  cprDeLowPStopTargTriggerInfoMerger: {
-    module_type: "MergeTriggerInfo"
-  }
-  cprHelixDeTriggerInfoMerger: {
-    module_type: "MergeTriggerInfo"
-  }
+   TTCalHelixFinderUe: {
+      doSingleOutput: true
+      HelixFinderAlg: {
+         BackgroundSelectionBits: [
+            "Background",
+            "Noisy",
+            "Dead"
+         ]
+         HelixFitSelectionBits: []
+         chi2hel3DMax: 9
+         chi2xyMax: 5
+         chi2zphiMax: 5
+         debugLevel: 0
+         debugLevel2: 0
+         dfdzErr: 1e-1
+         maxNHitsRatio: 1.5
+         diagLevel: 0
+         distPatRec: 100
+         dzOverHelPitchCut: 7e-1
+         filter: true
+         hitChi2Max: 25
+         initDfDz: 0
+         maxAbsTanDip: 2
+         maxDfDz: 2.5e-2
+         maxElectronHitEnergy: 5e-3
+         maxP: 150
+         maxPanelToHelixDPhi: 1.309
+         maxXDPhi: 5
+         maxZTripletSearch: 0
+         minAbsTanDip: 3e-1
+         minArea: 5000
+         minDeltaNShPatRec: 2
+         minDfDz: 2e-3
+         minNHit: 10
+         minP: 50
+         mindist: 500
+         mostProbableDfDz: 4.75e-3
+         nHitsMaxPerPanel: 1
+         plotall: false
+         sigmaPhi: 1.636e-1
+         targetconsistent: 0
+         usetarget: true
+         weight3D: 1.2e-1
+         weightXY: 1.11
+         weightZPhi: 7.5e-1
+         xyWeights: false
+         zWeights: false
+      }
+      StrawHitCollectionLabel: "TTflagBkgHits"
+      TimeClusterCollectionLabel: "TTCalTimePeakFinderUe"
+      debugLevel: 0
+      diagLevel: 0
+      diagPlugin: {
+         mcTruth: 0
+         mcUtils: {
+            strawDigiMCCollTag: "compressDigiMCs"
+            tool_type: "TrkPatRecMcUtils"
+            comboHitCollTag: "TTmakeSH"
+         }
+         tool_type: "CalHelixFinderDiag"
+      }
+      Helicities: [
+         -1,
+         1
+      ]
+      fitdirection: 0
+      fitparticle: 11
+      doSingleOutput: true
+      maxEDepAvg: 0.0025
+      minNHitsTimeCluster: 10
+      module_type: "CalHelixFinder"
+      printFrequency: 100
+   }
+
+   TTCalTimePeakFinder: {
+      DtMax: 20
+      DtMin: -20
+      MinNHits: 10
+      StrawHitCollectionLabel: "TTflagBkgHits"
+      StrawHitFlagCollectionLabel: "ShouldNotBeUsed"
+      beta: 1
+      caloClusterModuleLabel: "CaloClusterFast"
+      debugLevel: 0
+      diagLevel: 0
+      diagPlugin: {
+         mcTruth: 0
+         mcUtils: {
+            strawDigiMCCollTag: "compressDigiMCs"
+            tool_type: "TrkPatRecMcUtils"
+         }
+         tool_type: "CalTimePeakFinderDiag"
+      }
+      dtOffset: 0
+      minClusterEnergy: 50
+      minClusterSize: 2
+      module_type: "CalTimePeakFinder"
+      pitchAngle: 6.7e-1
+      printFrequency: 100
+   }
+   TTCalTimePeakFinderUe: {
+      DtMax: 20
+      DtMin: -20
+      MinNHits: 10
+      StrawHitCollectionLabel: "TTflagBkgHits"
+      StrawHitFlagCollectionLabel: "ShouldNotBeUsed"
+      beta: 1
+      caloClusterModuleLabel: "CaloClusterFast"
+      debugLevel: 0
+      diagLevel: 0
+      diagPlugin: {
+         mcTruth: 0
+         mcUtils: {
+            strawDigiMCCollTag: "compressDigiMCs"
+            tool_type: "TrkPatRecMcUtils"
+         }
+         tool_type: "CalTimePeakFinderDiag"
+      }
+      dtOffset: -3.1
+      minClusterEnergy: 50
+      minClusterSize: 2
+      module_type: "CalTimePeakFinder"
+      pitchAngle: -6.7e-1
+      printFrequency: 100
+   }
+
+   TTCalHelixMergerDe: {
+      HelixFinders: [
+         "TTCalHelixFinderDe"
+      ]
+      debugLevel: 0
+      deltanh: 5
+      module_type: "MergeHelices"
+      scaleXY: 1.1
+      scaleZPhi: 7.5e-1
+      MinHitOverlapFraction: 0.5
+      MinNHitOverlap: 10
+   }
+   TTCalHelixMergerUe: {
+      HelixFinders: [
+         "TTCalHelixFinderUe"
+      ]
+      debugLevel: 0
+      deltanh: 5
+      module_type: "MergeHelices"
+      scaleXY: 1.1
+      scaleZPhi: 7.5e-1
+      MinHitOverlapFraction: 0.5
+      MinNHitOverlap: 10
+   }
+
+   TTCalSeedFitDe: {
+      module_type : LoopHelixFit
+      MaterialSettings : { @table::Mu2eKinKalTrigger.MAT     }
+      KKFitSettings    : { @table::Mu2eKinKalTrigger.KKFIT   }
+      FitSettings      : { @table::Mu2eKinKalTrigger.SEEDFIT }
+      ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
+      ModuleSettings   : {
+         @table::Mu2eKinKalTrigger.LOOPHELIX
+         HelixSeedCollections: ["TTCalHelixMergerDe"]
+         FitParticle         : 11
+      }
+      UsePDGCharge     : false
+      FitDirection     : 0
+   }
+
+   cprDeHighPStopTargTriggerInfoMerger: {
+      module_type: "MergeTriggerInfo"
+   }
+   cprDeHighPTriggerInfoMerger: {
+      module_type: "MergeTriggerInfo"
+   }
+   cprDeLowPStopTargTriggerInfoMerger: {
+      module_type: "MergeTriggerInfo"
+   }
+   cprHelixDeTriggerInfoMerger: {
+      module_type: "MergeTriggerInfo"
+   }
 }
 
 END_PROLOG
