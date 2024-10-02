@@ -1,0 +1,56 @@
+BEGIN_PROLOG
+
+TrigCalProducers : {
+  CaloHitMakerFast:
+  {
+    module_type   : "CaloHitsFromFragments"
+    diagLevel     : 0
+    caloTag       : "artFragFromDTCEvents"
+    digiSampling  : 5
+    deltaTPulses  : 5.
+    nPEperMeV     : 30
+    noiseLevelMeV : 0.55
+    nSigmaNoise   : 4
+    # hitEDepMax    : 80.
+    hitEDepMax    : 1000. # for testing
+    hitEDepMin    : 1.0
+    caphriEDepMax : 5.0 #MeV
+    caphriEDepMin : 1.0 #MeV
+  }
+
+  CaloHitMakerFastFromDigi: {
+    ProtonBunchTimeTag: "EWMProducer"
+    caloDigiCollection: "CaloDigiMaker"
+    caphriCrystalID: [
+      623,
+      624,
+      595,
+      596
+    ]
+    deltaTPulses: 11
+    diagLevel: 0
+    digiSampling: 5
+    module_type: "CaloHitMakerFast"
+    nPEperMeV: 30
+    nSigmaNoise: 4
+    noiseLevelMeV: 5.5e-1
+  }
+
+
+  CaloClusterFast: {
+    EminSeed: 10
+    EnoiseCut: 1
+    ExpandCut: 1
+    caloHitCollection: "CaloHitMakerFast:calo"
+    deltaTime: 10
+    diagLevel: 0
+    extendSearch: true
+    minSiPMPerHit: 2
+    module_label: "CaloClusterFast"
+    module_type: "CaloClusterFast"
+    timeOffset: -61
+  }
+
+}
+
+END_PROLOG
