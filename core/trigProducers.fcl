@@ -189,7 +189,6 @@ Mu2eKinKalTrigger : {
     MaterialCorrection : true
     MaxCaloClusterDt : 25.0 # loose timing cut; needed for DeP for now TODO
     MaxCaloClusterDOCA : 150.0 # mm
-    SampleSurfaces : ["TT_Mid"]
     SaveTrajectory : "T0"
   }
 
