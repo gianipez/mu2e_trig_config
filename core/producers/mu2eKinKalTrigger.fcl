@@ -65,6 +65,7 @@ Mu2eKinKalTrigger : {
     SeedErrors: [ 5, 5, 5, 5, 2e-2, 5 ]
     ComboHitCollection : "TTmakeSH"
     CaloClusterCollection : "CaloClusterFast"
+    SampleSurfaces : ["TT_Mid"]
   }
 
   KINEMATICLINE : {
