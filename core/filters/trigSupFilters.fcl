@@ -1,0 +1,38 @@
+BEGIN_PROLOG
+
+TrigSupFilters:{
+  minBiasSDCountPS : { module_type: PrescaleEvent
+      eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
+  minBiasCDCountPS : { module_type: PrescaleEvent
+      eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
+
+  minBiasCDCountFilter: {
+    caloDigiCollection: "CaloDigiMaker"
+    maxCaloEnergy: -1
+    maxNCaloDigi: 5000
+    maxNStrawDigi: -1
+    minNCaloDigi: 200
+    minNStrawDigi: -1
+    module_type: "DigiFilter"
+    strawDigiCollection: "notUsed"
+    triggerPath: "minBiasCaloDigiCount"
+    useCaloDigi: true
+    useStrawDigi: false
+  }
+  minBiasSDCountFilter: {
+    caloDigiCollection: "notUSed"
+    maxCaloEnergy: -1
+    maxNCaloDigi: -1
+    maxNStrawDigi: 10000
+    minNCaloDigi: -1
+    minNStrawDigi: 10
+    module_type: "DigiFilter"
+    strawDigiCollection: "makeSD"
+    triggerPath: "minBiasStrawDigiCount"
+    useCaloDigi: false
+    useStrawDigi: true
+  }
+
+}
+
+END_PROLOG

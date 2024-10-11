@@ -1,0 +1,64 @@
+BEGIN_PROLOG
+
+TrigAprProducers : {
+  TTTZClusterFinder : { @table::CalPatRec.producers.TZClusterFinder
+    chCollLabel                : "TTflagBkgHits"
+    chCollLabel2               : "TTmakeSH"
+    ccCollLabel                : "CaloClusterFast"
+  }
+
+  TTAprHelixFinder: { @table::CalPatRec.producers.AgnosticHelixFinder
+    chCollLabel             : "TTflagBkgHits"
+    tcCollLabel             : "TTTZClusterFinder"
+    ccCollLabel             : "CaloClusterFast"
+    minNHelixComboHits      : 10
+    maxEDepAvg              : @local::TrigTrkProducers.TTHelixFinderParams.maxEDepAvg
+    maxNHitsRatio           : 1.5
+  }
+
+  TTAprHelixMerger: {
+    HelixFinders: [
+      "TTAprHelixFinder"
+    ]
+    debugLevel: 0
+    deltanh: 5
+    module_type: "MergeHelices"
+    scaleXY: 1.1
+    scaleZPhi: 7.5e-1
+    MinHitOverlapFraction: 0.5
+    MinNHitOverlap: 10
+  }
+
+  TTAprKSF: {
+    module_type : LoopHelixFit
+    MaterialSettings : { @table::Mu2eKinKalTrigger.MAT     }
+    KKFitSettings    : { @table::Mu2eKinKalTrigger.KKFIT   }
+    FitSettings      : { @table::Mu2eKinKalTrigger.SEEDFIT }
+    ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
+    ModuleSettings   : {
+      @table::Mu2eKinKalTrigger.LOOPHELIX
+      FitParticle : 11
+      HelixSeedCollections   : [ "TTAprHelixMerger" ]
+    }
+    UsePDGCharge     : false
+    FitDirection     : 0
+  }
+
+  aprHighPStopTargTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  aprHighPTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  aprLowPStopTargTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  aprLowPStopTargMultiTrkTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+  aprHelixTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+}
+
+END_PROLOG

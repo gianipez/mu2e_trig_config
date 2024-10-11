@@ -24,6 +24,14 @@
                                ]
         },
 
+        "tprDe_highP"         : {
+            "bit" : 101 ,
+            "enabled": 1,
+            "eventModeConfig": [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_main", "dqm_trigger" ] },
+                                {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]          }
+                               ]
+        },
+
         "tprDe_lowP_stopTarg" : {
             "bit": 110 ,
             "enabled": 1,
@@ -66,6 +74,13 @@
                                  {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]          }]
         },
 
+        "cprDe_highP": {
+            "bit" : 151 ,
+            "enabled": 1,
+            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_main", "dqm_trigger" ]},
+                                 {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]          }]
+        },
+
         "cprDe_lowP_stopTarg" : {
             "bit" : 160,
             "enabled": 1,
@@ -89,6 +104,14 @@
 
         "apr_highP_stopTarg"   : {
             "bit" : 180 ,
+            "enabled": 1,
+            "eventModeConfig": [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_main", "dqm_trigger" ] },
+                                {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]          }
+                               ]
+        },
+
+        "apr_highP"   : {
+            "bit" : 181 ,
             "enabled": 1,
             "eventModeConfig": [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_main", "dqm_trigger" ] },
                                 {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]          }
@@ -148,15 +171,15 @@
                                  {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_calo_calib" ]        }]
         },
 
-        "cst":{
-            "bit" : 300 ,
-            "enabled": 1,
-            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":-1, "streams": [ "physics_trk_calib" ]},
-                                 {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
-        },
-
         "cstTimeCluster":{
             "bit" : 310 ,
+            "enabled": 1,
+            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":-1, "streams": [ "physics_trk_calib" ]},
+                                 {"eventMode":"OffSpill", "prescale":100, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
+        },
+        
+        "cstCosmicTrackSeed":{
+            "bit" : 320 ,
             "enabled": 1,
             "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":-1, "streams": [ "physics_trk_calib" ]},
                                  {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
@@ -174,7 +197,14 @@
             "enabled": 1,
             "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":10000, "streams": [ "physics_minBias" ]},
                                  {"eventMode":"OffSpill", "prescale":10000, "streams": [ "cosmics_main", "physics_minBias" ]}]
-        }
+        },
+        
+        "caloHitRec_N0Source":{
+            "bit" : 500 ,
+            "enabled": 1,
+            "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":1, "streams": [ "physics_calo_calib" ]},
+                                 {"eventMode":"OffSpill", "prescale":10000, "streams": [ "cosmics_main", "physics_calo_calib" ]}] 
+       }
 
     },
 

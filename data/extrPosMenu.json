@@ -14,12 +14,6 @@
             "eventModeConfig" : [{"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "dqm_trigger" ]}]
         },
                 
-        "cst":{ 
-            "bit" : 300 ,
-            "enabled": 1, 
-            "eventModeConfig" : [{"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main" ]}]
-        },
-        
         "cstTimeCluster":{ 
             "bit" : 310 ,
             "enabled": 1, 
